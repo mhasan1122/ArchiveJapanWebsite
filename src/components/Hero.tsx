@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 function SakuraPetal({ delay, left }: { delay: number; left: string }) {
   return (
@@ -24,12 +24,13 @@ export default function Hero() {
     setMounted(true);
   }, []);
 
-  const petals = mounted
-    ? Array.from({ length: 15 }, (_, i) => ({
-        delay: Math.random() * 10,
-        left: `${Math.random() * 100}%`,
-      }))
-    : [];
+  const petals = useMemo(() => {
+    if (!mounted) return [];
+    return Array.from({ length: 15 }, (_, i) => ({
+      delay: Math.random() * 10,
+      left: `${Math.random() * 100}%`,
+    }));
+  }, [mounted]);
 
   return (
     <section

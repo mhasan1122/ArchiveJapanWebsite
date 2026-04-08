@@ -2,53 +2,31 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-
-const testimonials = [
-  {
-    name: "Rafiqul Islam",
-    role: "SSW Worker — Agriculture",
-    location: "Now in Hokkaido, Japan",
-    avatar: "RI",
-    text: "Achieve Japan changed my life completely. From zero Japanese knowledge, I passed JLPT N4 in just 6 months and now I'm working in Japan with a great company. The teachers and staff are incredibly supportive!",
-    rating: 5,
-  },
-  {
-    name: "Farhana Akter",
-    role: "SSW Worker — Food Service",
-    location: "Now in Tokyo, Japan",
-    avatar: "FA",
-    text: "I was skeptical at first, but Achieve Japan proved me wrong. They handled everything from language training to visa processing. Today I'm earning well in Tokyo and supporting my family back home. Best decision ever!",
-    rating: 5,
-  },
-  {
-    name: "Mohammad Hasan",
-    role: "Student Visa — Language School",
-    location: "Now in Osaka, Japan",
-    avatar: "MH",
-    text: "The quality of teaching at Achieve Japan is unmatched. Their experienced teachers make learning Japanese fun and effective. I cleared JFT-Basic on my first attempt and got my student visa smoothly.",
-    rating: 5,
-  },
-  {
-    name: "Tasnim Rahman",
-    role: "SSW Worker — Nursing Care",
-    location: "Now in Nagoya, Japan",
-    avatar: "TR",
-    text: "From the very first consultation to my arrival in Japan, Achieve Japan was with me at every step. Their 17 years of experience really shows. I couldn't have done it without their guidance and support.",
-    rating: 5,
-  },
-  {
-    name: "Abdul Karim",
-    role: "SSW Worker — Construction",
-    location: "Now in Fukuoka, Japan",
-    avatar: "AK",
-    text: "The SSW training program at Achieve Japan is comprehensive and practical. They don't just teach you the language — they teach you Japanese work culture, which is equally important. Highly recommended!",
-    rating: 5,
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+
+  const testimonials = (["t1", "t2", "t3", "t4", "t5"] as const).map((id) => ({
+    id,
+    name: t(`testimonials.${id}.name`),
+    role: t(`testimonials.${id}.role`),
+    location: t(`testimonials.${id}.location`),
+    avatar:
+      id === "t1"
+        ? "RI"
+        : id === "t2"
+          ? "FA"
+          : id === "t3"
+            ? "MH"
+            : id === "t4"
+              ? "TR"
+              : "AK",
+    text: t(`testimonials.${id}.text`),
+    rating: 5,
+  }));
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -94,14 +72,13 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary-light text-sm font-semibold tracking-wide uppercase">
-            Success Stories
+            {t("testimonials.badge")}
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Lives <span className="text-primary">Transformed</span>
+            {t("testimonials.headline")}
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-            Real stories from real students who built their dream careers in Japan
-            with our guidance.
+            {t("testimonials.description")}
           </p>
         </motion.div>
 

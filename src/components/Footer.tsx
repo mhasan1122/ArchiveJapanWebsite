@@ -2,32 +2,47 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const footerLinks = {
-  Programs: [
-    { name: "JLPT N5–N4", href: "#programs" },
-    { name: "JLPT N3–N2", href: "#programs" },
-    { name: "SSW Training", href: "#programs" },
-    { name: "IELTS Prep", href: "#programs" },
-    { name: "JFT-Basic", href: "#programs" },
-  ],
-  Services: [
-    { name: "SSW Visa Support", href: "#how-it-works" },
-    { name: "Student Visa", href: "#how-it-works" },
-    { name: "Job Placement", href: "#how-it-works" },
-    { name: "Business Visa", href: "#how-it-works" },
-    { name: "Travel Visa", href: "#how-it-works" },
-  ],
-  Company: [
-    { name: "About Us", href: "#about" },
-    { name: "Success Stories", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
-    { name: "FAQ", href: "#" },
-    { name: "Blog", href: "#" },
-  ],
-};
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = [
+    {
+      id: "programs",
+      title: t("footer.categories.programs"),
+      links: [
+        { id: "jlpt_n5_n4", label: t("footer.links.programs.jlpt_n5_n4"), href: "#programs" },
+        { id: "jlpt_n3_n2", label: t("footer.links.programs.jlpt_n3_n2"), href: "#programs" },
+        { id: "ssw_training", label: t("footer.links.programs.ssw_training"), href: "#programs" },
+        { id: "ielts_prep", label: t("footer.links.programs.ielts_prep"), href: "#programs" },
+        { id: "jft_basic", label: t("footer.links.programs.jft_basic"), href: "#programs" },
+      ],
+    },
+    {
+      id: "services",
+      title: t("footer.categories.services"),
+      links: [
+        { id: "ssw_visa_support", label: t("footer.links.services.ssw_visa_support"), href: "#how-it-works" },
+        { id: "student_visa", label: t("footer.links.services.student_visa"), href: "#how-it-works" },
+        { id: "job_placement", label: t("footer.links.services.job_placement"), href: "#how-it-works" },
+        { id: "business_visa", label: t("footer.links.services.business_visa"), href: "#how-it-works" },
+        { id: "travel_visa", label: t("footer.links.services.travel_visa"), href: "#how-it-works" },
+      ],
+    },
+    {
+      id: "company",
+      title: t("footer.categories.company"),
+      links: [
+        { id: "about_us", label: t("footer.links.company.about_us"), href: "#about" },
+        { id: "success_stories", label: t("footer.links.company.success_stories"), href: "#testimonials" },
+        { id: "contact", label: t("footer.links.company.contact"), href: "#contact" },
+        { id: "faq", label: t("footer.links.company.faq"), href: "#" },
+        { id: "blog", label: t("footer.links.company.blog"), href: "#" },
+      ],
+    },
+  ];
+
   return (
     <footer className="relative bg-secondary text-white pt-20 pb-8 overflow-hidden">
       {/* Background decoration */}
@@ -59,9 +74,7 @@ export default function Footer() {
               </div>
             </motion.div>
             <p className="text-gray-400 leading-relaxed max-w-md mb-6">
-              Bangladesh&apos;s premier Japanese language training institute and
-              overseas job consultancy. Building futures in Japan since 2007 with
-              17+ years of trusted excellence.
+              {t("footer.description")}
             </p>
             <div className="flex gap-4">
               {[
@@ -103,19 +116,19 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
+          {footerLinks.map((group) => (
+            <div key={group.id}>
               <h3 className="font-bold text-white mb-5 text-sm uppercase tracking-wider">
-                {title}
+                {group.title}
               </h3>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.name}>
+                {group.links.map((link) => (
+                  <li key={`${group.id}-${link.id}`}>
                     <a
                       href={link.href}
                       className="text-gray-400 hover:text-primary text-sm transition-colors duration-200"
                     >
-                      {link.name}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -127,14 +140,15 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Achieve Japan. All rights reserved.
+            {t("footer.bottom.copyright_prefix")} {new Date().getFullYear()} Achieve Japan.{" "}
+            {t("footer.bottom.rights_full")}
           </p>
           <div className="flex items-center gap-6 text-sm text-gray-500">
             <a href="#" className="hover:text-primary transition-colors">
-              Privacy Policy
+              {t("footer.privacy")}
             </a>
             <a href="#" className="hover:text-primary transition-colors">
-              Terms of Service
+              {t("footer.terms")}
             </a>
           </div>
         </div>

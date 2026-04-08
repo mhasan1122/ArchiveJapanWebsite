@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useMemo } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const HERO_IMAGES = [
   "/hero-bg.png",
@@ -25,6 +26,7 @@ function SakuraPetal({ delay, left }: { delay: number; left: string }) {
 }
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -51,7 +53,7 @@ export default function Hero() {
     >
       {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0 z-0 bg-black">
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
             initial={{ opacity: 0, scale: 1.1 }}
@@ -87,7 +89,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white/90 text-sm font-medium shadow-2xl">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
-              New Batch Starting Soon — Limited Seats!
+              {t("hero.badge")}
             </span>
           </motion.div>
 
@@ -98,9 +100,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-8 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight drop-shadow-2xl"
           >
-            Build Your{" "}
+            {t("hero.headline_1")}{" "}
             <span className="relative">
-              <span className="shimmer-text">Future</span>
+              <span className="shimmer-text">{t("hero.headline_highlight")}</span>
               <motion.div 
                 className="absolute -bottom-2 left-0 h-1.5 bg-primary/80 rounded-full"
                 initial={{ width: 0 }}
@@ -109,7 +111,7 @@ export default function Hero() {
               />
             </span>
             <br />
-            in Japan{" "}
+            {t("hero.headline_2")}{" "}
             <span className="inline-block animate-float text-5xl sm:text-6xl lg:text-7xl drop-shadow-xl">
               🇯🇵
             </span>
@@ -122,10 +124,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-8 text-lg sm:text-xl text-white/90 max-w-xl leading-relaxed drop-shadow-lg"
           >
-            Your complete pathway to Japan — expert language training, SSW visa
-            support, job placement & study abroad consultancy with{" "}
-            <span className="text-white font-bold border-b-2 border-primary/50">17+ years</span> of
-            trusted experience.
+            {t("hero.subtext")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -142,7 +141,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 flex items-center gap-3 text-lg">
-                Start Your Journey
+                {t("hero.cta_primary")}
                 <svg
                   className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"
                   fill="none"
@@ -180,7 +179,7 @@ export default function Hero() {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              Book Free Consultation
+              {t("hero.cta_secondary")}
             </motion.a>
           </motion.div>
 
@@ -192,9 +191,9 @@ export default function Hero() {
             className="mt-16 flex flex-wrap gap-12 items-center"
           >
             {[
-              { value: "17+", label: "Years Experience" },
-              { value: "5000+", label: "Students Placed" },
-              { value: "50+", label: "Japan Partners" },
+              { value: "17+", label: t("hero.stats.years") },
+              { value: "5000+", label: t("hero.stats.students") },
+              { value: "50+", label: t("hero.stats.partners") },
             ].map((stat) => (
               <div key={stat.label} className="relative">
                 <div className="text-4xl font-black text-white tracking-tighter">

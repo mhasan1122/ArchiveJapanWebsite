@@ -1,71 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const programs = [
-  {
-    title: "JLPT N5–N4",
-    subtitle: "Beginner Japanese",
-    duration: "3–6 Months",
-    outcome: "Basic fluency & JLPT certification",
-    icon: "🗾",
-    features: [
-      "Hiragana & Katakana mastery",
-      "800+ vocabulary words",
-      "Basic conversation skills",
-      "Mock exam preparation",
-    ],
-    color: "from-rose-500 to-primary",
-    popular: false,
-  },
-  {
-    title: "JLPT N3–N2",
-    subtitle: "Advanced Japanese",
-    duration: "6–12 Months",
-    outcome: "Professional-level Japanese",
-    icon: "🎌",
-    features: [
-      "Advanced grammar & kanji",
-      "Business Japanese",
-      "3000+ vocabulary words",
-      "Interview preparation",
-    ],
-    color: "from-primary to-primary-dark",
-    popular: true,
-  },
-  {
-    title: "SSW Training",
-    subtitle: "Specified Skilled Worker",
-    duration: "3–4 Months",
-    outcome: "Ready for Japan employment",
-    icon: "⛩️",
-    features: [
-      "JFT-Basic / JLPT prep",
-      "Skill test preparation",
-      "Japanese work culture",
-      "Visa documentation support",
-    ],
-    color: "from-primary-dark to-red-900",
-    popular: false,
-  },
-  {
-    title: "IELTS Prep",
-    subtitle: "English Proficiency",
-    duration: "2–3 Months",
-    outcome: "Target band score achievement",
-    icon: "📚",
-    features: [
-      "All 4 modules covered",
-      "Practice tests weekly",
-      "Speaking mock sessions",
-      "Score improvement guarantee",
-    ],
-    color: "from-gray-700 to-gray-900",
-    popular: false,
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Programs() {
+  const { t } = useLanguage();
+
+  const programs = [
+    {
+      ...(t("programs.p1") as any),
+      key: "p1",
+      icon: "🗾",
+      color: "from-rose-500 to-primary",
+      popular: false,
+    },
+    {
+      ...(t("programs.p2") as any),
+      key: "p2",
+      icon: "🎌",
+      color: "from-primary to-primary-dark",
+      popular: true,
+    },
+    {
+      ...(t("programs.p3") as any),
+      key: "p3",
+      icon: "⛩️",
+      color: "from-primary-dark to-red-900",
+      popular: false,
+    },
+    {
+      title: t("programs.p4.title"),
+      subtitle: t("programs.p4.subtitle"),
+      duration: t("programs.p4.duration"),
+      outcome: t("programs.p4.outcome"),
+      icon: "📚",
+      features: (t("programs.p4.features") as any) || [],
+      color: "from-gray-700 to-gray-900",
+      key: "p4",
+      popular: false,
+    },
+  ];
+
   return (
     <section id="programs" className="relative py-24 bg-accent">
       {/* Subtle pattern */}
@@ -81,15 +56,14 @@ export default function Programs() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
-            Our Programs
+            {t("programs.badge")}
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-            Choose Your{" "}
-            <span className="gradient-text">Pathway</span>
+            {t("programs.headline_1")}{" "}
+            <span className="gradient-text">{t("programs.headline_highlight")}</span>
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Comprehensive training programs designed to take you from zero to
-            working in Japan, with personalized guidance every step of the way.
+            {t("programs.description")}
           </p>
         </motion.div>
 
@@ -97,7 +71,7 @@ export default function Programs() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {programs.map((program, i) => (
             <motion.div
-              key={program.title}
+              key={program.key ?? program.title ?? i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -107,7 +81,7 @@ export default function Programs() {
               {program.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="px-4 py-1 bg-gradient-to-r from-primary to-primary-dark text-white text-xs font-bold rounded-full shadow-lg shadow-primary/30 uppercase tracking-wider">
-                    Most Popular
+                    {t("programs.popular")}
                   </span>
                 </div>
               )}
@@ -163,9 +137,9 @@ export default function Programs() {
 
                 {/* Features */}
                 <ul className="mt-5 space-y-2.5">
-                  {program.features.map((feature) => (
+                  {Array.isArray(program.features) && program.features.map((feature: string, featureIdx: number) => (
                     <li
-                      key={feature}
+                      key={`${program.key ?? i}-feature-${featureIdx}`}
                       className="flex items-start gap-2 text-sm text-gray-600"
                     >
                       <svg
@@ -195,7 +169,7 @@ export default function Programs() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Enroll Now
+                  {t("programs.enroll")}
                 </motion.a>
               </div>
             </motion.div>

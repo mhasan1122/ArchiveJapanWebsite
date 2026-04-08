@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Achieve Japan | Japanese Language Training & SSW Visa Consultancy",
@@ -47,7 +48,9 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-white text-gray-900 font-[Inter]"
         suppressHydrationWarning
       >
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

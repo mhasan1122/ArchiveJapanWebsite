@@ -32,7 +32,7 @@ export default function Hero() {
     setMounted(true);
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 6000); // Change image every 6 seconds
+    }, 5000); // Change image every 5 seconds
     return () => clearInterval(timer);
   }, []);
 
@@ -50,23 +50,25 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background Image Slider with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
+      <div className="absolute inset-0 z-0 bg-black">
+        <AnimatePresence>
           <motion.div
             key={currentImageIndex}
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 6, ease: "linear" }}
+            transition={{
+              opacity: { duration: 1.5, ease: "easeInOut" },
+              scale: { duration: 5, ease: "linear" }
+            }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')` }}
           />
         </AnimatePresence>
         
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-transparent" />
-        <div className="absolute inset-0 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
       </div>
 
       {/* Sakura Petals */}

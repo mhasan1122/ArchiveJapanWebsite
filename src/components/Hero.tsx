@@ -32,6 +32,14 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true);
+
+    // Preload hero backgrounds to avoid flashes between transitions.
+    // (Especially noticeable with `background-image` swaps.)
+    HERO_IMAGES.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000); // Change image every 5 seconds
@@ -53,7 +61,8 @@ export default function Hero() {
     >
       {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0 z-0 bg-black">
-        <AnimatePresence mode="wait">
+        {/* Use an overlapping crossfade (no "gap" frame). */}
+        <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={currentImageIndex}
             initial={{ opacity: 0, scale: 1.1 }}
@@ -64,7 +73,10 @@ export default function Hero() {
               scale: { duration: 5, ease: "linear" }
             }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')` }}
+            style={{
+              backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')`,
+              willChange: "opacity, transform",
+            }}
           />
         </AnimatePresence>
         

@@ -8,7 +8,7 @@ type Locale = 'en' | 'bn' | 'jp';
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: <T = any>(key: TranslationKey) => T;
+  t: (key: TranslationKey) => any;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -29,7 +29,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('language_preference', newLocale);
   };
 
-  const t = <T = any,>(key: TranslationKey): T => {
+  const t = (key: TranslationKey): any => {
     const keys = key.split('.');
     let result: any = translations[locale];
     
@@ -43,14 +43,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
           if (englishFallback && englishFallback[fallbackK]) {
             englishFallback = englishFallback[fallbackK];
           } else {
-            return key as any; // Return the key itself as last resort
+            return key; // Return the key itself as last resort
           }
         }
-        return englishFallback as T;
+        return englishFallback;
       }
     }
     
-    return (result ?? key) as T;
+    return result ?? key;
   };
 
   return (

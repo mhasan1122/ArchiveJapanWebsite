@@ -29,6 +29,16 @@ const posts = [
     date: "Oct 2024",
     image: "/blog/how-to-learn-japanese-featured.png",
   },
+  {
+    slug: "what-should-bangladeshi-candidates-do-to-get-an-ssw-visa",
+    title: "What should Bangladeshi Candidates do to get an SSW Visa?",
+    excerpt:
+      "Achieve Japan explains exams, documents, jobs, and preparation stepwise for Bangladeshis seeking the Specified Skilled Worker visa.",
+    category: "Visa",
+    readTime: "8 min read",
+    date: "Oct 2024",
+    image: "/blog/ssw-visa-guide-bangladesh.png",
+  },
 ];
 
 export default function BlogIndexPage() {

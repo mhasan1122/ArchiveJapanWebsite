@@ -17,6 +17,17 @@ const posts = [
     category: "Guide",
     readTime: "5 min read",
     date: "Oct 2024",
+    image: "/blog/best-places-to-learn-japanese-in-dhaka.png",
+  },
+  {
+    slug: "how-to-learn-japanese-step-by-step-guide",
+    title: "How to Learn Japanese: Step-by-Step Guide for Beginners",
+    excerpt:
+      "Learn Japanese step-by-step with Achieve Japan. Follow this beginner-friendly guide to speak, read, and write Japanese confidently while enjoying cultural learning.",
+    category: "Guide",
+    readTime: "7 min read",
+    date: "Oct 2024",
+    image: "/blog/how-to-learn-japanese-featured.png",
   },
 ];
 
@@ -40,39 +51,49 @@ export default function BlogIndexPage() {
           to Japan.
         </p>
 
-        <ul className="space-y-6">
+        <ul className="space-y-8">
           {posts.map((post) => (
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-2xl border border-gray-100 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                className="group block bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-500"
               >
-                <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <BookOpen className="w-6 h-6" />
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-2/5 aspect-[16/9] md:aspect-auto relative overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-primary px-3 py-1 text-[10px] font-bold text-white rounded-full uppercase tracking-widest shadow-lg">
+                        {post.category}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="inline-block text-xs font-bold uppercase tracking-wider text-primary mb-2">
-                      {post.category}
-                    </span>
-                    <h2 className="text-xl md:text-2xl font-bold text-secondary group-hover:text-primary transition-colors mb-2">
-                      {post.title}
-                    </h2>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4" />
+                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-3 text-xs font-medium text-gray-500 mb-3">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5 text-primary" />
                         {post.date}
                       </span>
-                      <span className="flex items-center gap-1.5">
-                        <Clock className="w-4 h-4" />
+                      <span className="w-1 h-1 rounded-full bg-gray-300" />
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-primary" />
                         {post.readTime}
                       </span>
-                      <span className="flex items-center gap-1 text-primary font-semibold ml-auto sm:ml-0">
-                        Read article
-                        <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-bold text-secondary group-hover:text-primary transition-colors mb-3 leading-tight">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 line-clamp-2 italic">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-auto">
+                      <span className="inline-flex items-center gap-1.5 text-primary font-bold text-sm">
+                        Read full guide
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                   </div>

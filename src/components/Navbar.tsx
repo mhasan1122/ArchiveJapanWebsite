@@ -31,7 +31,7 @@ export default function Navbar() {
     { name: t("navbar.home"), href: "#home" },
     { name: t("navbar.programs"), href: "#programs" },
     { name: t("navbar.ssw"), href: "#how-it-works" },
-    { name: t("navbar.stories"), href: "#testimonials" },
+    { name: "Career Counseling", href: "/career-counseling" },
     { name: t("navbar.about"), href: "/about" },
   ];
 
@@ -51,6 +51,7 @@ export default function Navbar() {
       return hash === href;
     }
     if (href === "/about") return pathname === "/about";
+    if (href === "/career-counseling") return pathname === "/career-counseling";
     return false;
   };
 

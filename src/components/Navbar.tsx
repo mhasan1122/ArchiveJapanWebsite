@@ -30,12 +30,22 @@ export default function Navbar() {
   const navLinks = [
     { name: t("navbar.home"), href: "#home" },
     { name: t("navbar.programs"), href: "#programs" },
-    { name: t("navbar.ssw"), href: "#how-it-works" },
+    { 
+      name: t("navbar.ssw"), 
+      href: "#how-it-works",
+      submenu: [
+        { name: t("navbar.ssw_dropdown.program"), href: "#how-it-works" },
+        { name: t("navbar.ssw_dropdown.visa"), href: "/visa-support" },
+      ]
+    },
     { name: "Career Counseling", href: "/career-counseling" },
     { name: t("navbar.about"), href: "/about" },
   ];
 
   const [hash, setHash] = useState("");
+  const [sswDropdownOpen, setSswDropdownOpen] = useState(false);
+  const [mobileSswOpen, setMobileSswOpen] = useState(false);
+  const sswDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const syncHash = () => setHash(typeof window !== "undefined" ? window.location.hash : "");
@@ -52,11 +62,12 @@ export default function Navbar() {
     }
     if (href === "/about") return pathname === "/about";
     if (href === "/career-counseling") return pathname === "/career-counseling";
+    if (href === "/visa-support") return pathname === "/visa-support";
     return false;
   };
 
   const navLinkClass = (active: boolean) =>
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 sm:px-4 " +
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 sm:px-4 cursor-pointer flex items-center gap-1 " +
     (active
       ? navSolid
         ? "bg-primary/10 text-primary font-semibold"
@@ -80,6 +91,9 @@ export default function Navbar() {
     const handleClickOutside = (event: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(event.target as Node)) {
         setLangOpen(false);
+      }
+      if (sswDropdownRef.current && !sswDropdownRef.current.contains(event.target as Node)) {
+        setSswDropdownOpen(false);
       }
     };
     window.addEventListener("mousedown", handleClickOutside);
@@ -124,6 +138,59 @@ export default function Navbar() {
             {/* Desktop: Home → Blog, language, CTA — one group, flush right */}
             <div className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 lg:flex xl:gap-1.5 2xl:gap-2">
               {navLinks.map((link) => {
+                if (link.submenu) {
+                  const isActive = link.submenu.some(sub => isNavLinkActive(sub.href));
+                  return (
+                    <div 
+                      key={link.name} 
+                      className="relative"
+                      ref={sswDropdownRef}
+                      onMouseEnter={() => setSswDropdownOpen(true)}
+                      onMouseLeave={() => setSswDropdownOpen(false)}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setSswDropdownOpen(!sswDropdownOpen)}
+                        className={navLinkClass(isActive)}
+                      >
+                        {link.name}
+                        <svg
+                          className={`h-4 w-4 transition-transform duration-300 ${sswDropdownOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+
+                      <AnimatePresence>
+                        {sswDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            className="absolute left-0 mt-2 w-48 overflow-hidden rounded-xl bg-white py-2 shadow-2xl border border-gray-100"
+                          >
+                            {link.submenu.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sectionHref(sub.href)}
+                                onClick={() => setSswDropdownOpen(false)}
+                                className={`block px-4 py-2.5 text-sm font-semibold uppercase tracking-wider transition-colors hover:bg-gray-50 ${
+                                  isNavLinkActive(sub.href) ? "text-primary" : "text-gray-700"
+                                }`}
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
                 const active = isNavLinkActive(link.href);
                 return (
                   <motion.a
@@ -277,6 +344,58 @@ export default function Navbar() {
                 {t("navbar.nav_title")}
               </h3>
               {navLinks.map((link, i) => {
+                if (link.submenu) {
+                  const isActive = link.submenu.some(sub => isNavLinkActive(sub.href));
+                  return (
+                    <div key={link.name} className="flex flex-col">
+                      <button
+                        onClick={() => setMobileSswOpen(!mobileSswOpen)}
+                        className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all ${
+                          isActive
+                            ? "bg-primary/10 text-primary"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        {link.name}
+                        <svg
+                          className={`w-5 h-5 transition-transform ${mobileSswOpen ? "rotate-90" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {mobileSswOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden bg-gray-50/50 rounded-xl mt-1 ml-4"
+                          >
+                            {link.submenu.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sectionHref(sub.href)}
+                                onClick={() => {
+                                  setMobileOpen(false);
+                                  setMobileSswOpen(false);
+                                }}
+                                className={`block px-4 py-3 text-sm font-bold ${
+                                  isNavLinkActive(sub.href) ? "text-primary" : "text-gray-600"
+                                }`}
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
                 const active = isNavLinkActive(link.href);
                 return (
                   <motion.a

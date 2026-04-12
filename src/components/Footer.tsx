@@ -23,7 +23,7 @@ export default function Footer() {
       id: "services",
       title: t("footer.categories.services"),
       links: [
-        { id: "ssw_visa_support", label: t("footer.links.services.ssw_visa_support"), href: "#how-it-works" },
+        { id: "ssw_visa_support", label: t("footer.links.services.ssw_visa_support"), href: "/visa-support" },
         { id: "student_visa", label: t("footer.links.services.student_visa"), href: "#how-it-works" },
         { id: "job_placement", label: t("footer.links.services.job_placement"), href: "#how-it-works" },
         { id: "business_visa", label: t("footer.links.services.business_visa"), href: "#how-it-works" },

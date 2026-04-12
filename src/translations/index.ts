@@ -4,6 +4,10 @@ export const translations: any = {
       home: "Home",
       programs: "Programs",
       ssw: "SSW Visa",
+      ssw_dropdown: {
+        program: "SSW Program",
+        visa: "Visa Support"
+      },
       stories: "Success Stories",
       about: "About",
       contact: "Contact",
@@ -314,6 +318,64 @@ export const translations: any = {
         support: "That's why we listen to your dream with patience, understand your challenges, and help you move forward with confidence. Our belief is to build a strong bond — academically, professionally, and personally.",
         cta: "Start your journey and join the thousands who have successfully fulfilled their dream with us – let us make your journey easier."
       }
+    },
+    visa_support: {
+      hero: {
+        badge: "Visa Support & Documentation",
+        title: "Complete Support for Your Japan Journey",
+        subtitle: "Achieve Japan provides complete visa and documentation support for students and professionals planning to go to Japan. We help you navigate the confusing immigration process correctly from the beginning."
+      },
+      counseling: {
+        title: "Personal Counseling to Understand Your Path",
+        desc_1: "Every applicant has different goals. That’s why our counselors offer one-to-one counseling. We sit with you individually to review your education, skills, and plan.",
+        desc_2: "We guide you through the exact pathways available: Student Visa, SSW Work Visa, and TITP Visa. We help you choose a path that is realistic, safe, and suitable for you."
+      },
+      preparation: {
+        title: "Step-by-Step Document Preparation",
+        desc: "Japanese immigration follows strict rules regarding paperwork. Even a small error can cause delays. We help you prepare each document accurately:",
+        docs: [
+          "Passport verification",
+          "Academic certificates and transcripts",
+          "Financial documents (Bank statements, Solvency letters)",
+          "Police clearance",
+          "Medical check reports (when required)",
+          "COE-related papers for student applicants",
+          "Employment papers for SSW applicants"
+        ]
+      },
+      ssw_guidance: {
+        title: "Specialized SSW Visa Guidance",
+        desc: "The SSW (Specified Skilled Worker) visa is one of the most popular work routes. Achieve Japan was the first to launch this program in Bangladesh.",
+        features: [
+          "JLPT N5/N4 and JFT A2 preparation guidelines",
+          "Basic Japanese communication training",
+          "Information on approved sectors (Caregiving, Construction, etc.)",
+          "Guidance for skill tests and exam registration",
+          "Support for connecting with approved employers",
+          "Document preparation for job contracts"
+        ]
+      },
+      student_support: {
+        title: "Complete Student Visa Support",
+        desc: "We assist students from school selection to final visa stamping:",
+        features: [
+          "Choosing the right language school or college",
+          "Understanding tuition fees and living schedules",
+          "Preparing financial guarantee papers",
+          "Completing admission applications",
+          "COE (Certificate of Eligibility) application guidance",
+          "Final embassy visa form filling and submission"
+        ]
+      },
+      trusted: {
+        title: "Why Achieve Japan Is a Trusted Name",
+        desc: "With 37 years of experience, we maintain a strong reputation for honest and practical guidance. We stay updated on immigration changes and ensure your file is complete for a smooth journey."
+      },
+      cta: {
+        title: "Take Your First Step Toward Japan",
+        desc: "Start your Japan journey with proper guidance today. Visit Achieve Japan in Banasree, Dhaka.",
+        button: "Contact Us Now"
+      }
     }
   },
   bn: {
@@ -321,6 +383,10 @@ export const translations: any = {
       home: "হোম",
       programs: "প্রোগ্রামসমূহ",
       ssw: "এসএসডব্লিউ ভিসা",
+      ssw_dropdown: {
+        program: "এসএসডব্লিউ প্রোগ্রাম",
+        visa: "ভিসা সাপোর্ট"
+      },
       stories: "সাফল্যের গল্প",
       about: "আমাদের সম্পর্কে",
       contact: "যোগাযোগ",
@@ -631,6 +697,64 @@ export const translations: any = {
         support: "এজন্যই আমরা ধৈর্য ধরে আপনার স্বপ্নের কথা শুনি, আপনার চ্যালেঞ্জগুলো বুঝি এবং আপনাকে আত্মবিশ্বাসের সাথে এগিয়ে যেতে সাহায্য করি। আমাদের বিশ্বাস হলো একটি শক্তিশালী বন্ধন গড়ে তোলা — শিক্ষাগতভাবে, পেশাগতভাবে এবং ব্যক্তিগতভাবে।",
         cta: "আপনার যাত্রা শুরু করুন এবং তাদের সাথে যোগ দিন যারা আমাদের সাথে সফলভাবে তাদের স্বপ্ন পূরণ করেছে।"
       }
+    },
+    visa_support: {
+      hero: {
+        badge: "ভিসা সাপোর্ট ও ডকুমেন্টেশন",
+        title: "জাপান যাত্রার জন্য সম্পূর্ণ সাপোর্ট",
+        subtitle: "অ্যাচিভ জাপান ছাত্র এবং পেশাদারদের জন্য সম্পূর্ণ ভিসা এবং ডকুমেন্টেশন সাপোর্ট প্রদান করে। আমরা শুরু থেকেই সঠিক প্রক্রিয়ায় আপনাকে সহায়তা করি।"
+      },
+      counseling: {
+        title: "আপনার পথ বুঝতে ব্যক্তিগত কাউন্সিলিং",
+        desc_1: "প্রতিটি আবেদনকারীর লক্ষ্য আলাদা। তাই আমাদের কাউন্সিলররা ওয়ান-টু-ওয়ান কাউন্সিলিং অফার করেন। আমরা আপনার শিক্ষা, দক্ষতা এবং পরিকল্পনা পর্যালোচনা করি।",
+        desc_2: "আমরা আপনাকে সঠিক পথ দেখাই: স্টুডেন্ট ভিসা, এসএসডব্লিউ ওয়ার্ক ভিসা এবং টিআইটিপি ভিসা। এটি আপনাকে একটি বাস্তবসম্মত এবং নিরাপদ পথ বেছে নিতে সাহায্য করে।"
+      },
+      preparation: {
+        title: "ধাপে ধাপে ডকুমেন্ট প্রস্তুতি",
+        desc: "জাপানি ইমিগ্রেশন পেপারওয়ার্কের বিষয়ে কঠোর নিয়ম অনুসরণ করে। ছোট ভুলও বিলম্বের কারণ হতে পারে। আমরা প্রতিটি ডকুমেন্ট নির্ভুলভাবে প্রস্তুত করতে সাহায্য করি:",
+        docs: [
+          "পাসপোর্ট ভেরিফিকেশন",
+          "একাডেমিক সার্টিফিকেট ও ট্রান্সক্রিপ্ট",
+          "আর্থিক নথি (ব্যাংক স্টেটমেন্ট, সচ্ছলতা পত্র)",
+          "পুলিশ ক্লিয়ারেন্স",
+          "মেডিকেল চেক রিপোর্ট (প্রয়োজন হলে)",
+          "স্টুডেন্টদের জন্য COE সংক্রান্ত কাগজপত্র",
+          "এসএসডব্লিউ'র জন্য চাকরির কাগজপত্র"
+        ]
+      },
+      ssw_guidance: {
+        title: "বিশেষায়িত এসএসডব্লিউ ভিসা গাইডেন্স",
+        desc: "এসএসডব্লিউ ভিসা এখন সবচেয়ে জনপ্রিয় কাজের পথ। অ্যাচিভ জাপান বাংলাদেশে এই প্রোগ্রামটি প্রথম শুরু করে।",
+        features: [
+          "JLPT N5/N4 এবং JFT A2 প্রস্তুতির নির্দেশিকা",
+          "বেসিক জাপানি যোগাযোগ প্রশিক্ষণ",
+          "অনুমোদিত সেক্টর (কেয়ারগিভিং, কনস্ট্রাকশন ইত্যাদি) তথ্য",
+          "স্কিল টেস্ট এবং পরীক্ষার রেজিস্ট্রেশন গাইডেন্স",
+          "অনুমোদিত নিয়োগকর্তাদের সাথে যোগাযোগের সহায়তা",
+          "জব কন্ট্রাক্টের জন্য ডকুমেন্ট প্রস্তুতি"
+        ]
+      },
+      student_support: {
+        title: "সম্পূর্ণ স্টুডেন্ট ভিসা সাপোর্ট",
+        desc: "আমরা স্কুল নির্বাচন থেকে শুরু করে ফাইনাল ভিসা স্ট্যাম্পিং পর্যন্ত সহায়তা করি:",
+        features: [
+          "সঠিক ল্যাঙ্গুয়েজ স্কুল বা কলেজ নির্বাচন",
+          "টিউশন ফি এবং জীবনযাত্রার ব্যয় বোঝা",
+          "আর্থিক গ্যারান্টি পেপার প্রস্তুত করা",
+          "ভর্তি আবেদন সম্পন্ন করা",
+          "COE (সার্টিফিকেট অফ এলিজিবিলিটি) আবেদন গাইডেন্স",
+          "এম্বাসি ভিসা ফরম পূরণ এবং জমা দেওয়া"
+        ]
+      },
+      trusted: {
+        title: "কেন অ্যাচিভ জাপান একটি বিশ্বস্ত নাম",
+        desc: "৩৭ বছরের অভিজ্ঞতার সাথে আমরা সততা ও স্বচ্ছতার জন্য পরিচিত। আমরা জাপানি কর্তৃপক্ষের প্রতিটি নিয়ম অনুসরণ করি এবং আপনাকে একটি মসৃণ যাত্রা নিশ্চিত করি।"
+      },
+      cta: {
+        title: "জাপানের দিকে আপনার প্রথম পদক্ষেপ নিন",
+        desc: "আজই সঠিক নির্দেশনায় আপনার যাত্রা শুরু করুন। বনশ্রী, ঢাকায় অ্যাচিভ জাপানে ভিজিট করুন।",
+        button: "এখনই যোগাযোগ করুন"
+      }
     }
   },
   jp: {
@@ -638,6 +762,10 @@ export const translations: any = {
       home: "ホーム",
       programs: "プログラム",
       ssw: "SSWビザ",
+      ssw_dropdown: {
+        program: "SSWプログラム",
+        visa: "ビザサポート"
+      },
       stories: "成功事例",
       about: "私たちについて",
       contact: "お問い合わせ",
@@ -943,9 +1071,67 @@ export const translations: any = {
         },
         philosophy: {
           title: "独りではありません",
-          text: "アチーブ・ジャパンでは、あなたは一人ではありません。私たちは精神的・肉体的に常にあなたのそばにいます。",
-          support: "だからこそ、私たちは辛抱強くあなたの夢に耳を傾け、課題を理解し、自信を持って前に進めるようサポートします。",
-          cta: "旅を始めましょう。私たちと共に夢を叶えた何千人もの仲間になってください。"
+          text: "アチーブ・ジャパンでは、あなたは一人ではありません。私たちは精神的・肉体的に常にあなたのそばにいます。私たちのシンプルな目標は、適切な指導と質の高い教育を通じて、あなたの日本への夢をかなえることです。",
+          support: "だからこそ、私たちは辛抱強くあなたの夢に耳を傾け、課題を理解し、自信を持って前に進めるようサポートします。私たちの信念は、学術的、専門的、そして個人的に強い絆を築くことです。",
+          cta: "旅を始めましょう。私たちと共に夢をかなえた何千人もの仲間になってください。"
+        }
+      },
+      visa_support: {
+        hero: {
+          badge: "ビザサポート・書類作成",
+          title: "日本への旅を完全にサポート",
+          subtitle: "アチーブ・ジャパンは、日本を目指す学生や専門家のために、ビザと書類作成の完全なサポートを提供します。複雑な入国手続きを最初から正しくナビゲートします。"
+        },
+        counseling: {
+          title: "あなたの進路を理解するための個別相談",
+          desc_1: "すべての志願者には異なる目標があります。そのため、カウンセラーが個別相談を行っています。あなたの学歴、スキル、計画を個別に確認します。",
+          desc_2: "留学生ビザ、SSW就労ビザ、TITPビザなど、具体的な経路をご案内します。あなたにとって現実的で安全かつ最適な道を選ぶお手伝いをします。"
+        },
+        preparation: {
+          title: "ステップバイステップの書類準備",
+          desc: "日本の入国管理局は書類に関して厳しい規則を設けています。小さなミスでも遅延の原因となります。私たちは各書類を正確に準備するお手伝いをします。",
+          docs: [
+            "パスポート認証",
+            "学歴証明書・成績証明書",
+            "財務書類 (残高証明書、残高証明書、保証人の書類)",
+            "警察証明書",
+            "健康診断書 (必要に応じて)",
+            "留学生向けCOE関連書類",
+            "SSW向け雇用関連書類"
+          ]
+        },
+        ssw_guidance: {
+          title: "専門的なSSWビザガイダンス",
+          desc: "SSW（特定技能）ビザは非常に人気のある就労経路です。アチーブ・ジャパンはこのプログラムをバングラデシュで最初に開始しました。",
+          features: [
+            "JLPT N5/N4およびJFT A2対策ガイドライン",
+            "基礎日本語コミュニケーション研修",
+            "認定職種 (介護、建設、農業等) の情報",
+            "技能試験・試験登録のガイダンス",
+            "認定雇用主とのマッチング支援",
+            "雇用契約書の書類準備"
+          ]
+        },
+        student_support: {
+          title: "完全な学生ビザサポート",
+          desc: "学校選びから最終的なビザ取得までサポートします。",
+          features: [
+            "適切な語学学校や大学の選定",
+            "学費と生活費のスケジュール把握",
+            "身元保証書類の準備",
+            "入学願書の作成",
+            "COE（在留資格認定証明書）申請ガイダンス",
+            "大使館ビザ申請書の作成・提出"
+          ]
+        },
+        trusted: {
+          title: "なぜアチーブ・ジャパンは信頼されるのか",
+          desc: "37年の実績を持ち、誠実で実践的な指導で強い信頼を得ています。日本の当局の規則をすべて遵守し、最新のイミグレーション情報を把握しています。"
+        },
+        cta: {
+          title: "日本への第一歩を踏み出しましょう",
+          desc: "適切な指導と共に、今日から日本への旅を始めてください。ダッカのバナスリにある弊社へお越しください。",
+          button: "今すぐお問い合わせ"
         }
       }
     }

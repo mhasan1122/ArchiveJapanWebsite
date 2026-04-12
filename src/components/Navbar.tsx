@@ -77,20 +77,22 @@ export default function Navbar() {
   };
 
   const navLinkClass = (active: boolean) =>
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 sm:px-4 cursor-pointer flex items-center gap-1 " +
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base uppercase tracking-wide transition-all duration-300 sm:px-4 cursor-pointer flex items-center gap-1 " +
+    (active ? "font-bold " : "font-normal ") +
     (active
       ? navSolid
-        ? "bg-primary/10 text-primary font-semibold"
-        : "bg-white/15 text-white font-semibold"
+        ? "bg-primary/10 text-primary"
+        : "bg-white/15 text-white"
       : "hover:bg-primary/10 hover:text-primary " +
         (navSolid ? "text-gray-700" : "text-white/90 hover:text-white"));
 
   const blogLinkClass =
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 sm:px-4 " +
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base uppercase tracking-wide transition-all duration-300 sm:px-4 " +
+    (pathname.startsWith("/blog") ? "font-bold " : "font-normal ") +
     (pathname.startsWith("/blog")
       ? navSolid
-        ? "bg-primary/10 text-primary font-semibold"
-        : "bg-white/15 text-white font-semibold"
+        ? "bg-primary/10 text-primary"
+        : "bg-white/15 text-white"
       : "hover:bg-primary/10 hover:text-primary " +
         (navSolid ? "text-gray-700" : "text-white/90 hover:text-white"));
 
@@ -191,8 +193,10 @@ export default function Navbar() {
                                 key={sub.name}
                                 href={sectionHref(sub.href)}
                                 onClick={() => setOpenDropdown(null)}
-                                className={`block px-4 py-2.5 text-sm font-semibold uppercase tracking-wider transition-colors hover:bg-gray-50 ${
-                                  isNavLinkActive(sub.href) ? "text-primary" : "text-gray-700"
+                                className={`block px-4 py-2.5 text-sm uppercase tracking-wider transition-colors hover:bg-gray-50 ${
+                                  isNavLinkActive(sub.href)
+                                    ? "text-primary font-bold"
+                                    : "text-gray-700 font-normal"
                                 }`}
                               >
                                 {sub.name}
@@ -237,7 +241,7 @@ export default function Navbar() {
                   }`}
                 >
                   <span className="text-xl leading-none">{activeLang.flag}</span>
-                  <span className="font-semibold leading-tight">{activeLang.name}</span>
+                  <span className="font-normal leading-tight">{activeLang.name}</span>
                   <svg
                     className={`h-4 w-4 shrink-0 transition-transform duration-300 ${langOpen ? "rotate-180" : ""}`}
                     fill="none"
@@ -273,7 +277,7 @@ export default function Navbar() {
                           className={`flex w-full items-center gap-3 px-4 py-3 text-base uppercase tracking-wide transition-colors hover:bg-gray-50 ${
                             locale === lang.code
                               ? "text-primary font-bold bg-primary/5"
-                              : "text-gray-700"
+                              : "text-gray-700 font-normal"
                           }`}
                         >
                           <span className="text-xl">{lang.flag}</span>
@@ -365,10 +369,10 @@ export default function Navbar() {
                     <div key={link.name} className="flex flex-col">
                       <button
                         onClick={() => setMobileOpenDropdown(isMobileOpen ? null : link.name)}
-                        className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all ${
+                        className={`flex items-center justify-between rounded-xl px-4 py-3 text-base transition-all ${
                           isActive
-                            ? "bg-primary/10 text-primary"
-                            : "text-gray-800"
+                            ? "bg-primary/10 text-primary font-bold"
+                            : "text-gray-800 font-normal"
                         }`}
                       >
                         {link.name}
@@ -397,8 +401,10 @@ export default function Navbar() {
                                   setMobileOpen(false);
                                   setMobileOpenDropdown(null);
                                 }}
-                                className={`block px-4 py-3 text-sm font-bold ${
-                                  isNavLinkActive(sub.href) ? "text-primary" : "text-gray-600"
+                                className={`block px-4 py-3 text-sm ${
+                                  isNavLinkActive(sub.href)
+                                    ? "text-primary font-bold"
+                                    : "text-gray-600 font-normal"
                                 }`}
                               >
                                 {sub.name}
@@ -420,10 +426,10 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all ${
+                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base transition-all ${
                       active
-                        ? "bg-primary/10 text-primary"
-                        : "text-gray-800 hover:bg-gray-50 hover:text-primary"
+                        ? "bg-primary/10 text-primary font-bold"
+                        : "text-gray-800 font-normal hover:bg-gray-50 hover:text-primary"
                     }`}
                     aria-current={active ? "page" : undefined}
                   >
@@ -465,10 +471,10 @@ export default function Navbar() {
               <Link
                 href="/blog"
                 onClick={() => setMobileOpen(false)}
-                className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all hover:bg-gray-50 ${
+                className={`flex items-center justify-between rounded-xl px-4 py-3 text-base transition-all hover:bg-gray-50 ${
                   pathname.startsWith("/blog")
-                    ? "text-primary bg-primary/10"
-                    : "text-gray-800 hover:text-primary"
+                    ? "text-primary bg-primary/10 font-bold"
+                    : "text-gray-800 font-normal hover:text-primary"
                 }`}
                 aria-current={pathname.startsWith("/blog") ? "page" : undefined}
               >
@@ -530,7 +536,11 @@ export default function Navbar() {
                     }`}
                   >
                     <span className="text-2xl">{lang.flag}</span>
-                    <span className="font-bold leading-tight">{lang.name}</span>
+                    <span
+                      className={`leading-tight ${locale === lang.code ? "font-bold" : "font-normal"}`}
+                    >
+                      {lang.name}
+                    </span>
                     {locale === lang.code && (
                       <svg
                         className="w-5 h-5 ml-auto text-white"

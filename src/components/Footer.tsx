@@ -38,7 +38,7 @@ export default function Footer() {
         { id: "success_stories", label: t("footer.links.company.success_stories"), href: "#testimonials" },
         { id: "contact", label: t("footer.links.company.contact"), href: "#contact" },
         { id: "faq", label: t("footer.links.company.faq"), href: "#" },
-        { id: "blog", label: t("footer.links.company.blog"), href: "#" },
+        { id: "blog", label: t("footer.links.company.blog"), href: "/blog" },
       ],
     },
   ];

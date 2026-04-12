@@ -7,9 +7,15 @@ export const translations: any = {
       stories: "Success Stories",
       about: "About",
       contact: "Contact",
+      company: "Company",
+      blog: "Blog",
+      career: "Career",
       cta: "Start Your Journey",
       nav_title: "Navigation",
-      lang_title: "Select Language"
+      lang_title: "Select Language",
+      lang_en: "English",
+      lang_bn: "বাংলা",
+      lang_jp: "日本語"
     },
     hero: {
       badge: "New Batch Starting Soon — Limited Seats!",
@@ -284,9 +290,15 @@ export const translations: any = {
       stories: "সাফল্যের গল্প",
       about: "আমাদের সম্পর্কে",
       contact: "যোগাযোগ",
+      company: "কোম্পানি",
+      blog: "ব্লগ",
+      career: "ক্যারিয়ার",
       cta: "আপনার যাত্রা শুরু করুন",
       nav_title: "ন্যাভিগেশন",
-      lang_title: "ভাষা নির্বাচন করুন"
+      lang_title: "ভাষা নির্বাচন করুন",
+      lang_en: "English",
+      lang_bn: "বাংলা",
+      lang_jp: "日本語"
     },
     hero: {
       badge: "নতুন ব্যাচ শীঘ্রই শুরু হচ্ছে — আসন সীমিত!",
@@ -561,9 +573,15 @@ export const translations: any = {
       stories: "成功事例",
       about: "私たちについて",
       contact: "お問い合わせ",
+      company: "会社情報",
+      blog: "ブログ",
+      career: "キャリア",
       cta: "旅を始める",
       nav_title: "ナビゲーション",
-      lang_title: "言語を選択"
+      lang_title: "言語を選択",
+      lang_en: "English",
+      lang_bn: "বাংলা",
+      lang_jp: "日本語"
     },
     hero: {
       badge: "新クラス近日開講 — 残席わずか！",

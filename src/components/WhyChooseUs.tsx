@@ -1,135 +1,254 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.1, ease: "easeOut" as const },
+  }),
+};
+
+const BANGLA_CONTENT = [
+  "Achieve Japan বাংলাদেশের একটি বিশ্বস্ত জাপানিজ ভাষা শিক্ষা ও SSW ট্রেনিং সেন্টার। আমরা ৩৭ বছরের অভিজ্ঞতা নিয়ে বাংলাদেশে জাপান-কেন্দ্রিক শিক্ষা ও ক্যারিয়ার সাপোর্ট দিয়ে আসছি। এই দীর্ঘ সময়ে আমরা জাপানের শিক্ষা ব্যবস্থা, কর্মসংস্কৃতি এবং নিয়োগ প্রক্রিয়া গভীরভাবে বুঝেছি, যাতে আপনাকে সঠিক ও বাস্তবসম্মত দিকনির্দেশনা দিতে পারি।",
+  "এ পর্যন্ত আমরা ২,৬০০ এর বেশি বাংলাদেশি প্রার্থীকে সফলভাবে জাপানে পাঠায়ছি। আজ তারা জাপানের বিভিন্ন সেক্টরে সম্মানজনক ও স্থায়ীভাবে কাজ করছেন। তাদের এই সাফল্য আমাদের অভিজ্ঞতা ও দায়িত্বশীল কাজের বাস্তব প্রমাণ।",
+  "আমাদের জাপানি ভাষা কোর্স JLPT N5, N4, N3 (Upcoming) ও JFT A2 এমনভাবে ডিজাইন করা, যেন আপনি শুধু পরীক্ষায় পাশই না করেন, বরং বাস্তব জীবনে জাপানি ভাষা আত্মবিশ্বাসের সাথে ব্যবহার করতে পারেন। পাশাপাশি আমাদের SSW স্কিল ট্রেনিং (Caregiving, Agriculture, Construction & Aviation) আপনাকে জাপানের চাকরির চাহিদা অনুযায়ী প্রস্তুত করে।",
+  "আমরা বিশ্বাস করি, জাপানে সফল হতে হলে ভাষার পাশাপাশি জাপানি সংস্কৃতি জানা ও বোঝা জরুরি। তাই আমরা আপনাকে জাপানি Work Culture, Punctuality, Discipline, Professional Behaviour and Responsibility নেওয়া সম্পর্কে আগেই প্রস্তুত করি, যাতে আপনি জাপানে গিয়ে দ্রুত নতুন পরিবেশের সাথে মানিয়ে নিতে পারেন।",
+  "Achieve Japan-এ আপনি পাবেন end-to-end professional সাপোর্ট। Admission থেকে শুরু করে course complete করা, documentation, visa guidance, interview preparation, জাপানে সফলভাবে পৌঁছানো, এবং জাপান যাওয়ার পরও আমরা আপনার পাশে থাকি। আমরা fake promise দিই না — আমরা আপনাকে আপনার যোগ্যতা ও সম্ভাবনার উপর ভিত্তি করে সঠিক সিদ্ধান্ত নিতে সহায়তা করি।",
+  "আপনি যদি জাপানে study, বা SSW ভিসার মাধ্যমে একটি নিরাপদ, সম্মানজনক এবং দীর্ঘমেয়াদি ক্যারিয়ার গড়তে চান, তাহলে Achieve Japan আপনার জন্য একটি নির্ভরযোগ্য প্রতিষ্ঠান।",
+];
+
+const ENGLISH_CONTENT = [
+  "Achieve Japan is a trusted Japanese language education and SSW training center in Bangladesh. We are dedicated to helping candidates build a successful future in Japan. With 37 years of experience, we have been supporting Bangladeshi candidates with Japan-focused education and career guidance. We provide real-life insight into Japan's education system, work culture, and recruitment process.",
+  "We have successfully sent more than 2,600 Bangladeshi candidates to Japan. Today, they are working permanently with dignity in various sectors across the country. Their success reflects our experience, transparency, and commitment to every candidate we serve.",
+  "Our Japanese language courses — JLPT N5, N4, N3 (upcoming), and JFT A2 — are designed to help you not only pass exams but also communicate confidently in real-life and workplace situations. Along with language training, our SSW skill training (Caregiving, Agriculture, Construction & Aviation) prepares you according to the actual requirements of Japanese employers.",
+  "We understand that success in Japan requires more than language skills. That is why we prepare you for Japanese work culture, punctuality, discipline, professional behavior, and responsibility — so that you can easily adapt to the new environment when you reach Japan.",
+  "At Achieve Japan, you receive complete end-to-end professional support — from admission and course completion to documentation, visa guidance, interview preparation, and departure to Japan. Even after you arrive in Japan, we continue to support you. We do not make false promises; instead, we guide you honestly based on your qualifications and career potential.",
+  "If you are planning to build a safe, respectable, and long-term career in Japan through study or an SSW visa, Achieve Japan is a reliable choice for you.",
+];
+
+const PILLARS = [
+  {
+    icon: "🏆",
+    title: "37 Years of Experience",
+    desc: "Deep understanding of Japan's education system, work culture, and recruitment process.",
+  },
+  {
+    icon: "✈️",
+    title: "2,600+ Sent to Japan",
+    desc: "Thousands of Bangladeshi candidates now working permanently with dignity across Japan.",
+  },
+  {
+    icon: "📚",
+    title: "JLPT & JFT Training",
+    desc: "N5, N4, N3 (upcoming) and JFT A2 courses for real-life and workplace communication.",
+  },
+  {
+    icon: "🔧",
+    title: "SSW Skill Training",
+    desc: "Caregiving, Agriculture, Construction & Aviation — prepared to Japanese employer standards.",
+  },
+  {
+    icon: "🎌",
+    title: "Work Culture Readiness",
+    desc: "Punctuality, discipline, professional behavior — so you adapt fast from day one in Japan.",
+  },
+  {
+    icon: "🤝",
+    title: "End-to-End Support",
+    desc: "From admission to departure and beyond — honest, reliable support at every stage.",
+  },
+];
 
 export default function WhyChooseUs() {
-  const { t } = useLanguage();
-
-  const reasons = [
-    {
-      icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
-      title: t("why_choose_us.reasons.r1_title"),
-      desc: t("why_choose_us.reasons.r1_desc"),
-    },
-    {
-      icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: t("why_choose_us.reasons.r2_title"),
-      desc: t("why_choose_us.reasons.r2_desc"),
-    },
-    {
-      icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-      title: t("why_choose_us.reasons.r3_title"),
-      desc: t("why_choose_us.reasons.r3_desc"),
-    },
-    {
-      icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
-      title: t("why_choose_us.reasons.r4_title"),
-      desc: t("why_choose_us.reasons.r4_desc"),
-    },
-    {
-      icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-      ),
-      title: t("why_choose_us.reasons.r5_title"),
-      desc: t("why_choose_us.reasons.r5_desc"),
-    },
-    {
-      icon: (
-        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: t("why_choose_us.reasons.r6_title"),
-      desc: t("why_choose_us.reasons.r6_desc"),
-    },
-  ];
+  const [lang, setLang] = useState<"bn" | "en">("en");
+  const content = lang === "bn" ? BANGLA_CONTENT : ENGLISH_CONTENT;
 
   return (
-    <section id="about" className="relative py-24 bg-accent overflow-hidden">
-      <div className="absolute inset-0 wave-pattern opacity-40" />
+    <section id="about" className="relative bg-[#F5F5F7] overflow-hidden">
+      {/* ── Main section ────────────────────────────────────────────────── */}
+      <div className="py-24 relative">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#E60023]/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#E60023]/4 rounded-full blur-3xl -ml-36 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
-              {t("why_choose_us.badge")}
-            </span>
-            <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
-              {t("why_choose_us.headline_1")}{" "}
-              <span className="gradient-text">{t("why_choose_us.headline_highlight")}</span>
-            </h2>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-              {t("why_choose_us.description_1")}
-            </p>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              {t("why_choose_us.description_2")}
-            </p>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <motion.a
-                href="#contact"
-                className="px-8 py-3.5 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+            {/* ── LEFT: narrative ─────────────────────────────────────── */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65 }}
+            >
+              {/* Section label */}
+              <span className="inline-block px-3 py-1 bg-[#E60023]/10 text-[#E60023] text-xs font-bold tracking-widest uppercase mb-5">
+                Why Choose Us
+              </span>
+
+              <h2
+                className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-8"
+                style={{ fontFamily: "Inter, system-ui, sans-serif" }}
               >
-                {t("why_choose_us.cta_get_started")}
-              </motion.a>
-              <motion.a
-                href="#programs"
-                className="px-8 py-3.5 bg-white text-gray-900 font-semibold rounded-2xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                {t("why_choose_us.cta_view_programs")}
-              </motion.a>
-            </div>
-          </motion.div>
+                Why Choose{" "}
+                <span className="text-[#E60023]">Achieve Japan?</span>
+              </h2>
 
-          {/* Right - Feature grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {reasons.map((reason, i) => (
+              {/* Language toggle */}
+              <div className="flex items-center gap-1 p-1 bg-white border border-gray-200 w-fit mb-8 shadow-sm">
+                <button
+                  type="button"
+                  onClick={() => setLang("en")}
+                  className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                    lang === "en"
+                      ? "bg-[#E60023] text-white"
+                      : "text-gray-500 hover:text-gray-800"
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLang("bn")}
+                  className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                    lang === "bn"
+                      ? "bg-[#E60023] text-white"
+                      : "text-gray-500 hover:text-gray-800"
+                  }`}
+                >
+                  বাংলা
+                </button>
+              </div>
+
+              {/* Content paragraphs with animation */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={lang}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4"
+                >
+                  {content.map((para, i) => (
+                    <p
+                      key={i}
+                      className={`leading-relaxed ${
+                        lang === "bn"
+                          ? "text-gray-700 text-[15px]"
+                          : "text-gray-600 text-base"
+                      }`}
+                      style={{ fontFamily: lang === "bn" ? "'Hind Siliguri', 'Noto Sans Bengali', sans-serif" : "Inter, system-ui, sans-serif" }}
+                    >
+                      {para}
+                    </p>
+                  ))}
+
+                  {/* Closing call line */}
+                  <p
+                    className="font-bold text-[#E60023] text-base pt-2"
+                    style={{ fontFamily: lang === "bn" ? "'Hind Siliguri', 'Noto Sans Bengali', sans-serif" : "Inter, system-ui, sans-serif" }}
+                  >
+                    {lang === "bn"
+                      ? "আপনার জাপান যাত্রা শুরু করুন আজই Achieve Japan-এর সাথে!"
+                      : "Start your Japan journey today with Achieve Japan!"}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* CTA buttons */}
+              <div className="flex flex-wrap gap-4 mt-10">
+                <motion.a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 px-8 py-4 bg-[#E60023] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#B8001C] transition-all duration-300 hover:shadow-lg hover:shadow-[#E60023]/25 hover:-translate-y-0.5"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Get Started Today
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.a>
+                <motion.a
+                  href="#programs"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 font-bold text-sm uppercase tracking-wider hover:border-[#E60023]/40 hover:text-[#E60023] transition-all duration-300 hover:-translate-y-0.5"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  View Our Programs
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* ── RIGHT: pillars ───────────────────────────────────────── */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {PILLARS.map((pillar, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={i * 0.1}
+                  whileHover={{ y: -6 }}
+                  className="group bg-white p-6 border border-gray-100 hover:border-[#E60023]/25 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="w-12 h-12 bg-[#E60023]/8 flex items-center justify-center text-2xl mb-4 group-hover:bg-[#E60023]/15 transition-colors duration-300">
+                    {pillar.icon}
+                  </div>
+                  <h3
+                    className="font-bold text-gray-900 text-sm mb-2 group-hover:text-[#E60023] transition-colors"
+                    style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+                  >
+                    {pillar.title}
+                  </h3>
+                  <p
+                    className="text-gray-500 text-xs leading-relaxed"
+                    style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+                  >
+                    {pillar.desc}
+                  </p>
+                </motion.div>
+              ))}
+
+              {/* Accent card */}
               <motion.div
-                key={reason.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-5 rounded-2xl bg-white border border-gray-100 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                transition={{ delay: 0.65 }}
+                className="sm:col-span-2 bg-[#1a1a2e] p-6 border border-white/5 relative overflow-hidden"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  {reason.icon}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#E60023]/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-5">
+                  <div className="shrink-0 w-12 h-12 bg-[#E60023] flex items-center justify-center">
+                    <span className="text-white text-xl">🎌</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-[#FF4D6A] text-[10px] font-black uppercase tracking-widest mb-1">Our Promise</div>
+                    <p
+                      className="text-white/85 text-sm leading-relaxed"
+                      style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+                    >
+                      No false promises. Honest guidance based on your qualifications and potential — from Bangladesh to Japan and beyond.
+                    </p>
+                  </div>
+                  <Link
+                    href="/about"
+                    className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#E60023] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#B8001C] transition-colors duration-300 whitespace-nowrap"
+                  >
+                    About Us
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1">{reason.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {reason.desc}
-                </p>
               </motion.div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

@@ -32,9 +32,9 @@ export default function Navbar() {
     { name: t("navbar.programs"), href: "#programs" },
     { 
       name: t("navbar.ssw"), 
-      href: "#how-it-works",
+      href: "/ssw-program",
       submenu: [
-        { name: t("navbar.ssw_dropdown.program"), href: "#how-it-works" },
+        { name: t("navbar.ssw_dropdown.program"), href: "/ssw-program" },
         { name: t("navbar.ssw_dropdown.visa"), href: "/visa-support" },
       ]
     },
@@ -63,6 +63,7 @@ export default function Navbar() {
     if (href === "/about") return pathname === "/about";
     if (href === "/career-counseling") return pathname === "/career-counseling";
     if (href === "/visa-support") return pathname === "/visa-support";
+    if (href === "/ssw-program") return pathname === "/ssw-program";
     return false;
   };
 

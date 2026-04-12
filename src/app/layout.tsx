@@ -5,7 +5,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 export const metadata: Metadata = {
   title: "Achieve Japan | Japanese Language Training & SSW Visa Consultancy",
   description:
-    "Build your future in Japan with Achieve Japan. 17+ years of excellence in Japanese language training (JLPT N5-N2), SSW Visa support, job placement, and study abroad consultancy. Start your journey today!",
+    "Build your future in Japan with Achieve Japan. 37+ years of excellence in Japanese language training (JLPT N5-N2), SSW Visa support, job placement, and study abroad consultancy. Start your journey today!",
   keywords: [
     "Japanese language training",
     "JLPT",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Achieve Japan | Build Your Future in Japan 🇯🇵",
     description:
-      "17+ years of excellence in Japanese language training, SSW Visa support & job placement.",
+      "37+ years of excellence in Japanese language training, SSW Visa support & job placement.",
     type: "website",
     locale: "en_US",
   },

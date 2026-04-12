@@ -32,20 +32,45 @@ export default function Navbar() {
     { name: t("navbar.programs"), href: "#programs" },
     { name: t("navbar.ssw"), href: "#how-it-works" },
     { name: t("navbar.stories"), href: "#testimonials" },
-    { name: t("navbar.about"), href: "#about" },
+    { name: t("navbar.about"), href: "/about" },
   ];
 
-  const hashLinkClass =
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 hover:bg-primary/10 hover:text-primary sm:px-4 " +
-    (navSolid ? "text-gray-700" : "text-white/90 hover:text-white");
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = () => setHash(typeof window !== "undefined" ? window.location.hash : "");
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [pathname]);
+
+  const isNavLinkActive = (href: string) => {
+    if (href.startsWith("#")) {
+      if (pathname !== "/") return false;
+      if (href === "#home") return hash === "" || hash === "#home";
+      return hash === href;
+    }
+    if (href === "/about") return pathname === "/about";
+    return false;
+  };
+
+  const navLinkClass = (active: boolean) =>
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 sm:px-4 " +
+    (active
+      ? navSolid
+        ? "bg-primary/10 text-primary font-semibold"
+        : "bg-white/15 text-white font-semibold"
+      : "hover:bg-primary/10 hover:text-primary " +
+        (navSolid ? "text-gray-700" : "text-white/90 hover:text-white"));
 
   const blogLinkClass =
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 hover:bg-primary/10 sm:px-4 " +
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 sm:px-4 " +
     (pathname.startsWith("/blog")
-      ? "text-primary font-semibold"
-      : navSolid
-        ? "text-gray-700 hover:text-primary"
-        : "text-white/90 hover:text-white");
+      ? navSolid
+        ? "bg-primary/10 text-primary font-semibold"
+        : "bg-white/15 text-white font-semibold"
+      : "hover:bg-primary/10 hover:text-primary " +
+        (navSolid ? "text-gray-700" : "text-white/90 hover:text-white"));
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -97,17 +122,25 @@ export default function Navbar() {
 
             {/* Desktop: Home → Blog, language, CTA — one group, flush right */}
             <div className="hidden min-w-0 flex-1 items-center justify-end gap-0.5 lg:flex xl:gap-1.5 2xl:gap-2">
-              {navLinks.map((link) => (
-                <motion.a
-                  key={link.name}
-                  href={sectionHref(link.href)}
-                  className={hashLinkClass}
-                  whileHover={{ y: -1 }}
-                >
-                  {link.name}
-                </motion.a>
-              ))}
-              <Link href="/blog" className={blogLinkClass}>
+              {navLinks.map((link) => {
+                const active = isNavLinkActive(link.href);
+                return (
+                  <motion.a
+                    key={link.name}
+                    href={sectionHref(link.href)}
+                    className={navLinkClass(active)}
+                    aria-current={active ? "page" : undefined}
+                    whileHover={{ y: -1 }}
+                  >
+                    {link.name}
+                  </motion.a>
+                );
+              })}
+              <Link
+                href="/blog"
+                className={blogLinkClass}
+                aria-current={pathname.startsWith("/blog") ? "page" : undefined}
+              >
                 {t("navbar.blog")}
               </Link>
 
@@ -242,22 +275,91 @@ export default function Navbar() {
               <h3 className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
                 {t("navbar.nav_title")}
               </h3>
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.name}
-                  href={sectionHref(link.href)}
-                  onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold text-gray-800 transition-all hover:bg-gray-50 hover:text-primary"
-                >
-                  {link.name}
+              {navLinks.map((link, i) => {
+                const active = isNavLinkActive(link.href);
+                return (
+                  <motion.a
+                    key={link.name}
+                    href={sectionHref(link.href)}
+                    onClick={() => setMobileOpen(false)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all ${
+                      active
+                        ? "bg-primary/10 text-primary"
+                        : "text-gray-800 hover:bg-gray-50 hover:text-primary"
+                    }`}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    {link.name}
+                    {active ? (
+                      <svg
+                        className="h-5 w-5 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-5 h-5 opacity-30"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    )}
+                  </motion.a>
+                );
+              })}
+              <Link
+                href="/blog"
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all hover:bg-gray-50 ${
+                  pathname.startsWith("/blog")
+                    ? "text-primary bg-primary/10"
+                    : "text-gray-800 hover:text-primary"
+                }`}
+                aria-current={pathname.startsWith("/blog") ? "page" : undefined}
+              >
+                {t("navbar.blog")}
+                {pathname.startsWith("/blog") ? (
+                  <svg
+                    className="h-5 w-5 text-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                ) : (
                   <svg
                     className="w-5 h-5 opacity-30"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden
                   >
                     <path
                       strokeLinecap="round"
@@ -266,31 +368,7 @@ export default function Navbar() {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </motion.a>
-              ))}
-              <Link
-                href="/blog"
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-all hover:bg-gray-50 ${
-                  pathname.startsWith("/blog")
-                    ? "text-primary bg-primary/5"
-                    : "text-gray-800 hover:text-primary"
-                }`}
-              >
-                {t("navbar.blog")}
-                <svg
-                  className="w-5 h-5 opacity-30"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                )}
               </Link>
 
               <div className="my-4 h-px bg-gray-100" />

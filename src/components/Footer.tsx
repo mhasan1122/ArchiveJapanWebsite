@@ -34,7 +34,7 @@ export default function Footer() {
       id: "company",
       title: t("footer.categories.company"),
       links: [
-        { id: "about_us", label: t("footer.links.company.about_us"), href: "#about" },
+        { id: "about_us", label: t("footer.links.company.about_us"), href: "/about" },
         { id: "success_stories", label: t("footer.links.company.success_stories"), href: "#testimonials" },
         { id: "contact", label: t("footer.links.company.contact"), href: "#contact" },
         { id: "faq", label: t("footer.links.company.faq"), href: "#" },

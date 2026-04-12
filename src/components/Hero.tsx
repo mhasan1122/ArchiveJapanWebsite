@@ -203,7 +203,7 @@ export default function Hero() {
             className="mt-16 flex flex-wrap gap-12 items-center"
           >
             {[
-              { value: "17+", label: t("hero.stats.years") },
+              { value: "37+", label: t("hero.stats.years") },
               { value: "5000+", label: t("hero.stats.students") },
               { value: "50+", label: t("hero.stats.partners") },
             ].map((stat) => (

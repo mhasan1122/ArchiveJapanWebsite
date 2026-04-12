@@ -22,7 +22,7 @@ export const translations: any = {
       headline_1: "Build Your",
       headline_highlight: "Future",
       headline_2: "in Japan",
-      subtext: "Your complete pathway to Japan — expert language training, SSW visa support, job placement & study abroad consultancy with 17+ years of trusted experience.",
+      subtext: "Your complete pathway to Japan — expert language training, SSW visa support, job placement & study abroad consultancy with 37+ years of trusted experience.",
       cta_primary: "Start Your Journey",
       cta_secondary: "Book Free Consultation",
       stats: {
@@ -113,7 +113,7 @@ export const translations: any = {
       badge: "Why Choose Us",
       headline_1: "Your Trusted Partner for a",
       headline_highlight: "Career in Japan",
-      description_1: "Achieve Japan has been Bangladesh's leading Japanese language training and overseas job consultancy for over 17 years. We don't just teach — we build futures.",
+      description_1: "Achieve Japan has been Bangladesh's leading Japanese language training and overseas job consultancy for over 37 years. We don't just teach — we build futures.",
       description_2: "Our comprehensive approach covers everything from language mastery and skill certification to visa processing and job placement in Japan. With direct partnerships across Japanese companies and educational institutions, we provide a seamless pathway to your Japanese dream.",
       cta_get_started: "Get Started Today",
       cta_view_programs: "View Programs",
@@ -244,7 +244,7 @@ export const translations: any = {
       urgency: "🔥 Only 25 seats remaining for the April batch"
     },
     footer: {
-      description: "Bangladesh's premier Japanese language training institute and overseas job consultancy. Building futures in Japan since 2007 with 17+ years of trusted excellence.",
+      description: "Bangladesh's premier Japanese language training institute and overseas job consultancy. Building futures in Japan since 1989 with 37+ years of trusted excellence.",
       categories: {
         programs: "Programs",
         services: "Services",
@@ -280,6 +280,36 @@ export const translations: any = {
       rights: "All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service"
+    },
+    about_page: {
+      hero: {
+        badge: "Your Trusted Japanese Language & Career Consultant",
+        title: "37 Years of Excellence",
+        subtitle: "Achieve Japan offers career counseling, language classes, and SSW training to make your journey smooth."
+      },
+      intro: {
+        title: "Who We Are",
+        text: "Achieve Japan is a trusted Japanese language institute and consultancy in Dhaka, Bangladesh. Our mission is to provide full guidance to students and job seekers toward a clear and successful path to Japan. Our team works with discipline and honesty to give you the support through proper education and training."
+      },
+      services: {
+        title: "Our Specialized Services",
+        text: "We offer personalized counseling that helps you understand your goals. Our service for you starts from career counseling, Japanese language preparation, to visa documentation, and SSW training. Our skilled teachers teach Japanese simply and effectively, so you can learn with confidence."
+      },
+      ssw: {
+        title: "SSW Preparation",
+        text: "Achieve Japan offers complete SSW preparation for those who are aiming to work in Japan. Our SSW classes follow Japan’s required standards for workplace skills and safety awareness.",
+        sectors: "Caregiver, Construction, Agricultural Firms, and Japanese Company Interviews."
+      },
+      training: {
+        title: "Education & Skills",
+        text: "We teach N5, N4/JFT-A2(Basic), N3, and train in job manners, task practices, and the required skills. All these help you to gain confidence for exams, interviews, and actual job demands."
+      },
+      philosophy: {
+        title: "You Are Never Alone",
+        text: "At Achieve Japan, you are never alone in your journey. We are always available here for you, psychologically and physically. We have a simple goal: to make your dream of Japan come true with proper guidance and quality education.",
+        support: "That's why we listen to your dream with patience, understand your challenges, and help you move forward with confidence. Our belief is to build a strong bond — academically, professionally, and personally.",
+        cta: "Start your journey and join the thousands who have successfully fulfilled their dream with us – let us make your journey easier."
+      }
     }
   },
   bn: {
@@ -305,7 +335,7 @@ export const translations: any = {
       headline_1: "জাপানে আপনার",
       headline_highlight: "ভবিষ্যৎ",
       headline_2: "গড়ুন",
-      subtext: "জাপানে আপনার সম্পূর্ণ পথচলা — ১৭ বছরেরও বেশি অভিজ্ঞতার সাথে বিশেষজ্ঞ ভাষা প্রশিক্ষণ, এসএসডব্লিউ ভিসা সাপোর্ট, জব প্লেসমেন্ট এবং স্টাডি অ্যাব্রোড কনসালটেন্সি।",
+      subtext: "জাপানে আপনার সম্পূর্ণ পথচলা — ৩৭ বছরেরও বেশি অভিজ্ঞতার সাথে বিশেষজ্ঞ ভাষা প্রশিক্ষণ, এসএসডব্লিউ ভিসা সাপোর্ট, জব প্লেসমেন্ট এবং স্টাডি অ্যাব্রোড কনসালটেন্সি।",
       cta_primary: "আপনার যাত্রা শুরু করুন",
       cta_secondary: "ফ্রি পরামর্শ নিন",
       stats: {
@@ -396,7 +426,7 @@ export const translations: any = {
       badge: "কেন আমাদের বেছে নেবেন",
       headline_1: "জাপানে ক্যারিয়ারের জন্য আপনার",
       headline_highlight: "নির্ভরযোগ্য সঙ্গী",
-      description_1: "অ্যাচিভ জাপান ১৭ বছরেরও বেশি সময় ধরে বাংলাদেশের শীর্ষস্থানীয় জাপানি ভাষা প্রশিক্ষণ এবং ওভারসিজ জব কনসালটেন্সি। আমরা শুধু শেখাই না — আমরা ভবিষ্যৎ গড়ি।",
+      description_1: "অ্যাচিভ জাপান ৩৭ বছরেরও বেশি সময় ধরে বাংলাদেশের শীর্ষস্থানীয় জাপানি ভাষা প্রশিক্ষণ এবং ওভারসিজ জব কনসালটেন্সি। আমরা শুধু শেখাই না — আমরা ভবিষ্যৎ গড়ি।",
       description_2: "আমাদের ব্যাপক পদ্ধতি ভাষা দক্ষতা এবং দক্ষতা শংসাপত্র থেকে শুরু করে ভিসা প্রক্রিয়াকরণ এবং জাপানে জব প্লেসমেন্ট পর্যন্ত সবকিছু কভার করে। জাপানি কোম্পানি এবং শিক্ষা প্রতিষ্ঠানের সাথে সরাসরি অংশীদারিত্বের সাথে, আমরা আপনার জাপানি স্বপ্নের একটি নিরবিচ্ছিন্ন পথ প্রদান করি।",
       cta_get_started: "আজই শুরু করুন",
       cta_view_programs: "প্রোগ্রামগুলো দেখুন",
@@ -527,7 +557,7 @@ export const translations: any = {
       urgency: "🔥 এপ্রিল ব্যাচে মাত্র ২৫টি আসন বাকি"
     },
     footer: {
-      description: "বাংলাদেশের অন্যতম জাপানি ভাষা প্রশিক্ষণ কেন্দ্র এবং ওভারসিজ জব কনসালটেন্সি। ২০০৭ সাল থেকে ১৭ বছরেরও বেশি অভিজ্ঞতার সাথে জাপানে ভবিষ্যৎ গড়ে তুলছি।",
+      description: "বাংলাদেশের অন্যতম জাপানি ভাষা প্রশিক্ষণ কেন্দ্র এবং ওভারসিজ জব কনসালটেন্সি। ১৯৮৯ সাল থেকে ৩৭ বছরেরও বেশি অভিজ্ঞতার সাথে জাপানে ভবিষ্যৎ গড়ে তুলছি।",
       categories: {
         programs: "প্রোগ্রামসমূহ",
         services: "পরিষেবা",
@@ -563,6 +593,36 @@ export const translations: any = {
       rights: "সর্বস্বত্ব সংরক্ষিত।",
       privacy: "গোপনীয়তা নীতি",
       terms: "পরিষেবার শর্তাবলী"
+    },
+    about_page: {
+      hero: {
+        badge: "আপনার বিশ্বস্ত জাপানি ভাষা ও ক্যারিয়ার কনসালট্যান্ট",
+        title: "৩৭ বছরের শ্রেষ্ঠত্ব",
+        subtitle: "আপনার জাপানে যাওয়ার পথকে সুগম করতে অ্যাচিভ জাপান ক্যারিয়ার কাউন্সেলিং, ভাষা শিক্ষা এবং এসএসডব্লিউ ট্রেনিং প্রদান করে।"
+      },
+      intro: {
+        title: "আমরা কে",
+        text: "অ্যাচিভ জাপান ঢাকা, বাংলাদেশের একটি বিশ্বস্ত জাপানি ভাষা প্রতিষ্ঠান এবং কনসালটেন্সি। আমাদের লক্ষ্য হলো শিক্ষার্থী এবং চাকরিপ্রার্থীদের জাপানে একটি স্বচ্ছ ও সফল পথের সঠিক দিকনির্দেশনা প্রদান করা। আমাদের টিম শৃঙ্খলা এবং সততার সাথে আপনাকে সঠিক শিক্ষা ও প্রশিক্ষণের মাধ্যমে সহযোগিতা করে।"
+      },
+      services: {
+        title: "আমাদের বিশেষ সেবা",
+        text: "আমরা ব্যক্তিগত কাউন্সেলিং প্রদান করি যা আপনাকে আপনার লক্ষ্য বুঝতে সাহায্য করে। আমাদের সেবা আপনার ক্যারিয়ার কাউন্সেলিং থেকে শুরু করে জাপানি ভাষা প্রস্তুতি, ভিসা প্রসেসিং এবং এসএসডব্লিউ ট্রেনিং পর্যন্ত বিস্তৃত। আমাদের অভিজ্ঞ শিক্ষকরা খুব সহজ ও কার্যকরভাবে জাপানি ভাষা শেখান।"
+      },
+      ssw: {
+        title: "এসএসডব্লিউ প্রস্তুতি",
+        text: "যারা জাপানে কাজ করতে চান তাদের জন্য অ্যাচিভ জাপান সম্পূর্ণ এসএসডব্লিউ প্রস্তুতি অফার করে। আমাদের এসএসডব্লিউ ক্লাসগুলো জাপানের নির্ধারিত মান অনুযায়ী কর্মক্ষেত্রের দক্ষতা ও নিরাপত্তা সচেতনতা অনুসরণ করে।",
+        sectors: "কেয়ারগিভার, কনস্ট্রাকশন, এগ্রিকালচারাল ফার্ম এবং জাপানি কোম্পানি ইন্টারভিউ প্রস্তুতি।"
+      },
+      training: {
+        title: "শিক্ষা ও দক্ষতা",
+        text: "আমরা N5, N4/JFT-A2 (বেসিক), N3 শেখাই এবং জব ম্যানারস, টাস্ক প্র্যাকটিস ও প্রয়োজনীয় দক্ষতা প্রদান করি। এই সব আপনাকে পরীক্ষা, ইন্টারভিউ এবং প্রকৃত কাজের জন্য আত্মবিশ্বাস যোগাতে সাহায্য করে।"
+      },
+      philosophy: {
+        title: "আপনি কখনোই একা নন",
+        text: "অ্যাচিভ জাপানে আপনার যাত্রায় আপনি কখনোই একা নন। আমরা মানসিকভাবে এবং শারীরিকভাবে আপনার জন্য সর্বদা এখানে আছি। আমাদের একটি সাধারণ লক্ষ্য: সঠিক দিকনির্দেশনা এবং মানসম্মত শিক্ষার মাধ্যমে আপনার জাপানের স্বপ্ন পূরণ করা।",
+        support: "এজন্যই আমরা ধৈর্য ধরে আপনার স্বপ্নের কথা শুনি, আপনার চ্যালেঞ্জগুলো বুঝি এবং আপনাকে আত্মবিশ্বাসের সাথে এগিয়ে যেতে সাহায্য করি। আমাদের বিশ্বাস হলো একটি শক্তিশালী বন্ধন গড়ে তোলা — শিক্ষাগতভাবে, পেশাগতভাবে এবং ব্যক্তিগতভাবে।",
+        cta: "আপনার যাত্রা শুরু করুন এবং তাদের সাথে যোগ দিন যারা আমাদের সাথে সফলভাবে তাদের স্বপ্ন পূরণ করেছে।"
+      }
     }
   },
   jp: {
@@ -588,7 +648,7 @@ export const translations: any = {
       headline_1: "日本であなたの",
       headline_highlight: "未来",
       headline_2: "を築こう",
-      subtext: "日本への完全な道筋 — 専門的な語学トレーニング、SSWビザサポート、就職支援、および17年以上の信頼ある経験を持つ留学コンサルタント。",
+      subtext: "日本への完全な道筋 — 専門的な語学トレーニング、SSWビザサポート、就職支援、および37年以上の信頼ある経験を持つ留学コンサルタント。",
       cta_primary: "旅を始める",
       cta_secondary: "無料相談を予約する",
       stats: {
@@ -679,7 +739,7 @@ export const translations: any = {
       badge: "選ばれる理由",
       headline_1: "日本でのキャリアを支える",
       headline_highlight: "信頼のパートナー",
-      description_1: "アチーブ・ジャパンは17年以上にわたり、バングラデシュで日本語教育と海外就職支援をリードしてきました。単に教えるだけでなく、未来を創ります。",
+      description_1: "アチーブ・ジャパンは37年以上にわたり、バングラデシュで日本語教育と海外就職支援をリードしてきました。単に教えるだけでなく、未来を創ります。",
       description_2: "語学の習得から技能認定、ビザ申請、日本での就職支援まで、包括的なアプローチを提供します。日本企業や教育機関との直接的な提携により、夢の実現をサポートします。",
       cta_get_started: "今日から始める",
       cta_view_programs: "プログラムを見る",
@@ -810,7 +870,7 @@ export const translations: any = {
       urgency: "🔥 4月クラスは残席25名"
     },
     footer: {
-      description: "バングラデシュを代表する日本語教育機関および海外就職支援コンサルタント。2007年以来、17年以上の実績で日本での未来を築いています。",
+      description: "バングラデシュを代表する日本語教育機関および海外就職支援コンサルタント。1989年以来、37年以上の実績で日本での未来を築いています。",
       categories: {
         programs: "プログラム",
         services: "サービス",

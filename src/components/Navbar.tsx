@@ -36,11 +36,11 @@ export default function Navbar() {
   ];
 
   const hashLinkClass =
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary sm:px-4 " +
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 hover:bg-primary/10 hover:text-primary sm:px-4 " +
     (navSolid ? "text-gray-700" : "text-white/90 hover:text-white");
 
   const blogLinkClass =
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 hover:bg-primary/10 sm:px-4 " +
+    "whitespace-nowrap px-3 py-2 rounded-lg text-base font-medium uppercase tracking-wide transition-all duration-300 hover:bg-primary/10 sm:px-4 " +
     (pathname.startsWith("/blog")
       ? "text-primary font-semibold"
       : navSolid
@@ -70,7 +70,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 font-['Oswald',sans-serif] transition-all duration-500 ${
           navSolid
             ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-black/5"
             : "bg-transparent"
@@ -115,7 +115,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setLangOpen(!langOpen)}
-                  className={`flex items-center gap-2 rounded-xl px-3 py-2 text-base transition-all duration-300 ${
+                  className={`flex items-center gap-2 rounded-xl px-3 py-2 text-base uppercase tracking-wide transition-all duration-300 ${
                     navSolid
                       ? "bg-gray-100/80 text-gray-700 hover:bg-gray-100"
                       : "bg-white/15 text-white hover:bg-white/20"
@@ -155,7 +155,7 @@ export default function Navbar() {
                             setLocale(lang.code as "en" | "bn" | "jp");
                             setLangOpen(false);
                           }}
-                          className={`flex w-full items-center gap-3 px-4 py-3 text-base transition-colors hover:bg-gray-50 ${
+                          className={`flex w-full items-center gap-3 px-4 py-3 text-base uppercase tracking-wide transition-colors hover:bg-gray-50 ${
                             locale === lang.code
                               ? "text-primary font-bold bg-primary/5"
                               : "text-gray-700"
@@ -187,7 +187,7 @@ export default function Navbar() {
 
               <motion.a
                 href={sectionHref("#contact")}
-                className="ml-1 shrink-0 rounded-full bg-gradient-to-r from-primary to-primary-dark px-4 py-2.5 text-base font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 xl:ml-2 xl:px-5 2xl:px-6"
+                className="ml-1 shrink-0 rounded-full bg-gradient-to-r from-primary to-primary-dark px-4 py-2.5 text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 xl:ml-2 xl:px-5 2xl:px-6"
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -236,7 +236,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-white px-6 pt-24 sm:pt-28 lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-white px-6 pt-24 font-['Oswald',sans-serif] uppercase tracking-wide sm:pt-28 lg:hidden"
           >
             <div className="flex flex-col gap-2 pb-10">
               <h3 className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">

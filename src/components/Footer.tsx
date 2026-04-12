@@ -57,21 +57,15 @@ export default function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 mb-6"
+              className="mb-6"
             >
               <Image
-                src="/Vertical_Logo-1.png"
-                alt="Achieve Japan Logo"
-                width={56}
-                height={56}
-                className="w-14 h-14 object-contain"
+                src="/logo.png"
+                alt="Achieve Japan — Study, Work, Smile"
+                width={400}
+                height={140}
+                className="h-12 w-auto max-w-[min(100%,280px)] object-contain object-left sm:h-14 sm:max-w-[320px] lg:h-16 lg:max-w-[360px]"
               />
-              <div>
-                <span className="font-bold text-xl text-white">Achieve</span>
-                <span className="font-bold text-xl text-primary ml-1">
-                  Japan
-                </span>
-              </div>
             </motion.div>
             <p className="text-gray-400 leading-relaxed max-w-md mb-6">
               {t("footer.description")}

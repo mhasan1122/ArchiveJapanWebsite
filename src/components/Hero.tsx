@@ -6,7 +6,8 @@ import { useLanguage } from "@/context/LanguageContext";
 
 /** Public-folder paths; segments are encoded when used in URLs (spaces in filenames). */
 const HERO_IMAGES = [
-  "/hero-bg.png",
+  // "/hero-bg.png",
+  "/fuji-mountain-cherry-blossoms-spring-japan.jpg",
   "/Rectangle 34626572.png",
   "/beautiful-landmark-fuji-mountain-chureito-pagoda-sunset-japan.jpg",
   "/mountain-fuji-maple-autumn 1 (1) copy.png",

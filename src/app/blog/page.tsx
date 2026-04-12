@@ -45,7 +45,7 @@ export default function BlogIndexPage() {
   return (
     <main className="min-h-screen bg-gray-50 pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center text-sm font-medium text-gray-500 mb-8">
+        <nav className="flex items-center text-base font-medium text-gray-500 mb-8">
           <Link href="/" className="hover:text-primary transition-colors">
             Home
           </Link>

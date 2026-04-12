@@ -82,7 +82,7 @@ export default function BlogContent() {
           <motion.nav 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex items-center text-sm font-medium text-gray-300 mb-8"
+            className="flex items-center text-base font-medium text-gray-300 mb-8"
           >
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <ChevronRight className="w-4 h-4 mx-2" />
@@ -294,10 +294,10 @@ export default function BlogContent() {
                           </span>
                           <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-primary' : ''}`} />
                         </button>
-                        <AnimatePresence initial={false}>
+                        <AnimatePresence>
                           {activeFaq === index && (
                             <motion.div
-                              key="faq-panel"
+                              key={`faq-panel-${index}`}
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}

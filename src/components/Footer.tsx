@@ -62,12 +62,12 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Achieve Japan — Study, Work, Smile"
-                width={400}
-                height={140}
-                className="h-12 w-auto max-w-[min(100%,280px)] object-contain object-left sm:h-14 sm:max-w-[320px] lg:h-16 lg:max-w-[360px]"
+                width={512}
+                height={180}
+                className="h-14 w-auto max-w-[min(100%,320px)] object-contain object-left sm:h-16 sm:max-w-[380px] lg:h-20 lg:max-w-[440px]"
               />
             </motion.div>
-            <p className="text-gray-400 leading-relaxed max-w-md mb-6">
+            <p className="text-base text-gray-400 leading-relaxed max-w-md mb-6">
               {t("footer.description")}
             </p>
             <div className="flex gap-4">
@@ -112,7 +112,7 @@ export default function Footer() {
           {/* Links */}
           {footerLinks.map((group) => (
             <div key={group.id}>
-              <h3 className="font-bold text-white mb-5 text-sm uppercase tracking-wider">
+              <h3 className="font-bold text-white mb-5 text-base uppercase tracking-wider">
                 {group.title}
               </h3>
               <ul className="space-y-3">

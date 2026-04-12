@@ -4,12 +4,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useMemo } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
+/** Public-folder paths; segments are encoded when used in URLs (spaces in filenames). */
 const HERO_IMAGES = [
   "/hero-bg.png",
-  "/hero-university.png",
-  "/title_mount_fuji.jpg",
-  "/hero-scenic.png",
+  "/Rectangle 34626572.png",
+  "/beautiful-landmark-fuji-mountain-chureito-pagoda-sunset-japan.jpg",
+  "/mountain-fuji-maple-autumn 1 (1) copy.png",
+  "/Rectangle 34626573.png",
 ];
+
+function encodePublicImagePath(path: string): string {
+  return path
+    .split("/")
+    .map((part) => (part ? encodeURIComponent(part) : ""))
+    .join("/");
+}
 
 function SakuraPetal({ delay, left }: { delay: number; left: string }) {
   return (
@@ -37,7 +46,7 @@ export default function Hero() {
     // (Especially noticeable with `background-image` swaps.)
     HERO_IMAGES.forEach((src) => {
       const img = new Image();
-      img.src = src;
+      img.src = encodePublicImagePath(src);
     });
 
     const timer = setInterval(() => {
@@ -74,7 +83,7 @@ export default function Hero() {
             }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')`,
+              backgroundImage: `url('${encodePublicImagePath(HERO_IMAGES[currentImageIndex])}')`,
               willChange: "opacity, transform",
             }}
           />

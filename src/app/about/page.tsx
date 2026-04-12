@@ -4,8 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { motion, type Variants } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 // Section Components
@@ -65,7 +66,7 @@ function CompanyIntro() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-none overflow-hidden shadow-2xl">
               <Image
                 src="/hero-university.png"
                 alt="Achieve Japan Campus"
@@ -76,7 +77,7 @@ function CompanyIntro() {
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
             </div>
             {/* Experience Badge */}
-            <div className="absolute -bottom-10 -right-10 bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 hidden md:block">
+            <div className="absolute -bottom-10 -right-10 bg-white p-8 rounded-none shadow-2xl border border-gray-100 hidden md:block">
               <div className="text-5xl font-black text-primary mb-1">37</div>
               <div className="text-gray-500 font-bold uppercase tracking-widest text-sm">Years of Trust</div>
             </div>
@@ -94,11 +95,11 @@ function CompanyIntro() {
               {t("about_page.intro.text")}
             </p>
             <div className="grid grid-cols-2 gap-8">
-              <div className="p-6 bg-accent rounded-2xl">
+              <div className="p-6 bg-accent rounded-none">
                 <div className="text-3xl font-bold text-primary mb-2">Honesty</div>
                 <p className="text-sm text-gray-500">Working with full discipline and transparency.</p>
               </div>
-              <div className="p-6 bg-accent rounded-2xl">
+              <div className="p-6 bg-accent rounded-none">
                 <div className="text-3xl font-bold text-primary mb-2">Guidance</div>
                 <p className="text-sm text-gray-500">Personalized support at every single step.</p>
               </div>
@@ -184,7 +185,7 @@ function ServicesGrid() {
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-[0_20px_40px_rgba(230,0,35,0.1)] transition-shadow duration-300 border border-gray-100 group cursor-default"
+              className="bg-white p-8 rounded-none shadow-xl hover:shadow-[0_20px_40px_rgba(230,0,35,0.1)] transition-shadow duration-300 border border-gray-100 group cursor-default"
             >
               <motion.div 
                 className="text-5xl mb-6 inline-block"
@@ -207,12 +208,38 @@ function ServicesGrid() {
 
 function SSWSpecialization() {
   const { t } = useLanguage();
-  const sectors = ["Caregiver", "Construction", "Agricultural Firms", "Interview Prep"];
+  const sectors = [
+    t("about_page.ssw.caregiver") || "Caregiver", 
+    t("about_page.ssw.construction") || "Construction", 
+    t("about_page.ssw.agriculture") || "Agricultural Firms", 
+    t("about_page.ssw.interview") || "Interview Prep"
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [
+    "/about/ssw-hero.png",
+    "/about/ssw-caregiver.png",
+    "/about/ssw-construction.png",
+    "/about/ssw-agriculture.png",
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  const slideVariants = {
+    initial: { x: "100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-100%", opacity: 0 },
+  };
   
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-secondary rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
+        <div className="bg-secondary rounded-none p-12 lg:p-20 relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute right-0 top-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2" />
           
@@ -224,22 +251,59 @@ function SSWSpecialization() {
               </p>
               <div className="space-y-4">
                 {sectors.map((sector, idx) => (
-                  <div key={idx} className="flex items-center gap-4 text-white font-medium">
+                  <motion.div 
+                    key={idx} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-center gap-4 text-white font-medium"
+                  >
                     <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-xs">✓</div>
                     {sector}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10">
-                <Image
-                  src="/hero-bg.png"
-                  alt="SSW Training"
-                  width={600}
-                  height={400}
-                  className="rounded-2xl"
-                />
+              <div className="rounded-none overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10 aspect-[3/2]">
+                <div className="relative w-full h-full rounded-none overflow-hidden group">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentIndex}
+                      variants={slideVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      transition={{ 
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.5 }
+                      }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={images[currentIndex]}
+                        alt={`SSW Training ${currentIndex + 1}`}
+                        fill
+                        className="rounded-none object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent" />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Indicators */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    {images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentIndex(idx)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          idx === currentIndex ? "bg-primary w-8" : "bg-white/40 hover:bg-white/60"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -268,7 +332,7 @@ function PhilosophySection() {
             <p>{t("about_page.philosophy.text")}</p>
             <p className="font-medium text-gray-900">{t("about_page.philosophy.support")}</p>
           </div>
-          <div className="mt-16 inline-block p-8 bg-white rounded-3xl shadow-2xl border border-primary/10">
+          <div className="mt-16 inline-block p-8 bg-white rounded-none shadow-2xl border border-primary/10">
             <p className="text-2xl font-bold text-primary leading-tight">
               {t("about_page.philosophy.cta")}
             </p>

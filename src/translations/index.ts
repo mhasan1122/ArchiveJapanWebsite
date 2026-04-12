@@ -298,6 +298,10 @@ export const translations: any = {
       ssw: {
         title: "SSW Preparation",
         text: "Achieve Japan offers complete SSW preparation for those who are aiming to work in Japan. Our SSW classes follow Japan’s required standards for workplace skills and safety awareness.",
+        caregiver: "Caregiver Training",
+        construction: "Construction Skills",
+        agriculture: "Modern Agriculture",
+        interview: "Interview Preparation",
         sectors: "Caregiver, Construction, Agricultural Firms, and Japanese Company Interviews."
       },
       training: {
@@ -611,7 +615,11 @@ export const translations: any = {
       ssw: {
         title: "এসএসডব্লিউ প্রস্তুতি",
         text: "যারা জাপানে কাজ করতে চান তাদের জন্য অ্যাচিভ জাপান সম্পূর্ণ এসএসডব্লিউ প্রস্তুতি অফার করে। আমাদের এসএসডব্লিউ ক্লাসগুলো জাপানের নির্ধারিত মান অনুযায়ী কর্মক্ষেত্রের দক্ষতা ও নিরাপত্তা সচেতনতা অনুসরণ করে।",
-        sectors: "কেয়ারগিভার, কনস্ট্রাকশন, এগ্রিকালচারাল ফার্ম এবং জাপানি কোম্পানি ইন্টারভিউ প্রস্তুতি।"
+        caregiver: "কেয়ারগিভার ট্রেনিং",
+        construction: "কনস্ট্রাকশন স্কিলস",
+        agriculture: "আধুনিক এগ্রিকালচার",
+        interview: "ইন্টারভিউ প্রস্তুতি",
+        sectors: "ケアーギバー、コンストラクション、アグリカルチャラル ファーム、および日本企業面接の準備。"
       },
       training: {
         title: "শিক্ষা ও দক্ষতা",
@@ -905,7 +913,41 @@ export const translations: any = {
       },
       rights: "全著作権所有。",
       privacy: "プライバシーポリシー",
-      terms: "利用規約"
+      terms: "利用規約",
+      about_page: {
+        hero: {
+          badge: "信頼される日本語・キャリアコンサルタント",
+          title: "37年の卓越した実績",
+          subtitle: "アチーブ・ジャパンは、キャリアカウンセリング、語学クラス、SSWトレーニングを提供し、あなたの旅をスムーズにします。"
+        },
+        intro: {
+          title: "私たちについて",
+          text: "アチーブ・ジャパンは、バングラデシュのダッカにある信頼のおける日本語学校およびコンサルタントです。私たちのミッションは、学生や求職者に対して日本への明確で成功した道を完全にガイドすることです。"
+        },
+        services: {
+          title: "私たちの専門サービス",
+          text: "私たちは、あなたの目標を理解するための個別カウンセリングを提供します。キャリアカウンセリング、日本語の準備から、ビザの書類作成、SSWトレーニングまで。"
+        },
+        ssw: {
+          title: "SSW対策",
+          text: "アチーブ・ジャパンは、日本での就労を目指す方のために完全なSSW対策を提供しています。SSWクラスは、日本の技能・安全基準に従っています。",
+          caregiver: "介護トレーニング",
+          construction: "建設技術",
+          agriculture: "現代農業",
+          interview: "面接対策",
+          sectors: "介護、建設、農業、および日本企業での面接。"
+        },
+        training: {
+          title: "教育とスキル",
+          text: "N5、N4/JFT-A2(初級)、N3を教え、ビジネスマナーや実技訓練を行います。"
+        },
+        philosophy: {
+          title: "独りではありません",
+          text: "アチーブ・ジャパンでは、あなたは一人ではありません。私たちは精神的・肉体的に常にあなたのそばにいます。",
+          support: "だからこそ、私たちは辛抱強くあなたの夢に耳を傾け、課題を理解し、自信を持って前に進めるようサポートします。",
+          cta: "旅を始めましょう。私たちと共に夢を叶えた何千人もの仲間になってください。"
+        }
+      }
     }
   }
 };

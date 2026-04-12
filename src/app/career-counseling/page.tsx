@@ -4,14 +4,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const HERO_IMAGES = [
-  "/hero-scenic.png",
-  "/hero-university.png",
-  "/hero-bg.png",
+  "/close-up-person-doing-japanese-calligraphy-called-shodo.jpg",
+  "/close-up-pupils-doing-japanese-calligraphy-called-shodo.jpg",
+  "/front-view-man-woman-discussing-table.jpg",
 ];
 
 // ─── Animation Variants ────────────────────────────────────────────────────────

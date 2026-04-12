@@ -8,9 +8,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const HERO_IMAGES = [
-  "/hero-bg.png",
-  "/hero-scenic.png",
-  "/hero-university.png",
+  "/portrait-business-people-worker-team-outside.jpg",
+  "/smiling-business-people-holding-meeting-office.jpg",
+  "/asian-businessmen-businesswomen-meeting-brainstorming-ideas-about-creative-web-design-planning-application-developing-template-layout-mobile-phone-project-working-together-small-office.jpg",
 ];
 
 // ─── Animation Variants ────────────────────────────────────────────────────────

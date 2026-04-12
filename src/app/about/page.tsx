@@ -16,13 +16,14 @@ function AboutHero() {
     <section className="relative pt-32 pb-20 overflow-hidden bg-secondary">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-scenic.png"
-          alt="Japan Scenic Background"
+          src="/beautiful-landmark-fuji-mountain-chureito-pagoda-sunset-japan.jpg"
+          alt="Mount Fuji and Chureito Pagoda at sunset, Japan"
           fill
-          className="object-cover opacity-30"
+          sizes="100vw"
+          className="object-cover object-center opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-secondary to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/65 via-secondary/90 to-white" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">

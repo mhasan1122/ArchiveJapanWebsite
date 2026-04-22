@@ -20,7 +20,7 @@ function AboutHero() {
           alt="Mount Fuji and Chureito Pagoda at sunset, Japan"
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-40"
+          className="object-cover object-center opacity-55"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/65 via-secondary/90 to-white" />

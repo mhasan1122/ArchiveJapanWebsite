@@ -70,7 +70,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background Image Slider with Overlay */}
-      <div className="absolute inset-0 z-0 bg-black">
+      <div className="absolute inset-0 z-0">
         {/* Use an overlapping crossfade (no "gap" frame). */}
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
@@ -90,9 +90,7 @@ export default function Hero() {
           />
         </AnimatePresence>
         
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
+        {/* Overlays removed (no dark shadow) */}
       </div>
 
       {/* Sakura Petals */}
@@ -100,9 +98,9 @@ export default function Hero() {
         <SakuraPetal key={i} delay={petal.delay} left={petal.left} />
       ))}
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
-        <div className="max-w-3xl">
+      {/* Content — same horizontal padding as Navbar (`px-6 lg:px-12`) so copy aligns with the logo */}
+      <div className="relative z-10 w-full px-6 lg:px-12 pt-32 pb-20">
+        <div className="max-w-3xl text-left">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -229,20 +227,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/80 to-transparent z-1" />
-
-      {/* Slider Indicators */}
-      <div className="absolute bottom-12 right-12 z-20 flex gap-3">
-        {HERO_IMAGES.map((_, i) => (
-          <div
-            key={i}
-            className={`h-1.5 transition-all duration-500 rounded-full ${
-              currentImageIndex === i ? "w-10 bg-primary" : "w-4 bg-white/30"
-            }`}
-          />
-        ))}
-      </div>
+      {/* Bottom gradient fade removed */}
 
       {/* Scroll indicator */}
       <motion.div

@@ -90,10 +90,18 @@ export default function Hero() {
           />
         </AnimatePresence>
 
+        {/* Soft left-to-right vignette: stronger readable tone on the left, clear image on the right */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.28) 22%, rgba(0,0,0,0.14) 48%, rgba(0,0,0,0.05) 68%, transparent 88%)",
+          }}
+          aria-hidden
+        />
+
         {/* Light white shadow/glow at the bottom of the image */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white/60 via-white/25 to-transparent mix-blend-screen" />
-        
-        {/* Overlays removed (no dark shadow) */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-64 bg-gradient-to-t from-white/60 via-white/25 to-transparent mix-blend-screen" />
       </div>
 
       {/* Sakura Petals */}

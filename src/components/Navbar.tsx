@@ -128,7 +128,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 font-['Oswald',sans-serif] transition-all duration-500 ${
           navSolid
             ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-black/5"
-            : "bg-transparent"
+            : "bg-black/10 backdrop-blur-sm border-b border-white/10"
         }`}
       >
         <div className="w-full px-6 lg:px-12">

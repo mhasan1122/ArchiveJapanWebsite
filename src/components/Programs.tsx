@@ -55,7 +55,7 @@ export default function Programs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
             {t("programs.badge")}
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -80,13 +80,13 @@ export default function Programs() {
             >
               {program.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <span className="px-4 py-1 bg-gradient-to-r from-primary to-primary-dark text-white text-xs font-bold rounded-full shadow-lg shadow-primary/30 uppercase tracking-wider">
+                  <span className="px-4 py-1 bg-gradient-to-r from-primary to-primary-dark text-white text-xs font-bold shadow-lg shadow-primary/30 uppercase tracking-wider">
                     {t("programs.popular")}
                   </span>
                 </div>
               )}
               <div
-                className={`relative h-full p-6 rounded-3xl bg-white border ${
+                className={`relative h-full p-6 bg-white border ${
                   program.popular
                     ? "border-primary/30 shadow-xl shadow-primary/10"
                     : "border-gray-200"
@@ -161,7 +161,7 @@ export default function Programs() {
                 {/* CTA */}
                 <motion.a
                   href="#contact"
-                  className={`mt-6 w-full inline-flex items-center justify-center py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                  className={`mt-6 w-full inline-flex items-center justify-center py-3 font-semibold text-sm transition-all duration-300 ${
                     program.popular
                       ? "bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
                       : "bg-gray-100 text-gray-900 hover:bg-primary hover:text-white"

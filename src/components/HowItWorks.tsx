@@ -64,7 +64,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
             {t("how_it_works.badge")}
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -91,14 +91,14 @@ export default function HowItWorks() {
                 transition={{ duration: 0.6, delay: i * 0.15 }}
                 className="relative group"
               >
-                <div className="relative p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 text-center">
+                <div className="relative p-8 bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 text-center">
                   {/* Step number */}
-                  <div className="relative mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-sakura-light flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary-dark transition-all duration-500">
+                  <div className="relative mx-auto w-16 h-16 bg-gradient-to-br from-primary/10 to-sakura-light flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary-dark transition-all duration-500">
                     <span className="text-primary font-extrabold text-lg group-hover:text-white transition-colors duration-500">
                       {step.step}
                     </span>
                     {/* Pulse ring */}
-                    <div className="absolute inset-0 rounded-2xl border-2 border-primary/20 group-hover:border-primary/40 animate-ping opacity-20" />
+                    <div className="absolute inset-0 border-2 border-primary/20 group-hover:border-primary/40 animate-ping opacity-20" />
                   </div>
 
                   {/* Icon */}

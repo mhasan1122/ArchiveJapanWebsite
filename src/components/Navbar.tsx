@@ -77,7 +77,7 @@ export default function Navbar() {
   };
 
   const navLinkClass = (active: boolean) =>
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base uppercase tracking-wide transition-all duration-300 sm:px-4 cursor-pointer flex items-center gap-1 " +
+    "whitespace-nowrap px-3 py-2 text-base uppercase tracking-wide transition-all duration-300 sm:px-4 cursor-pointer flex items-center gap-1 " +
     (active ? "font-bold " : "font-normal ") +
     (active
       ? navSolid
@@ -87,7 +87,7 @@ export default function Navbar() {
         (navSolid ? "text-gray-700" : "text-white/90 hover:text-white"));
 
   const blogLinkClass =
-    "whitespace-nowrap px-3 py-2 rounded-lg text-base uppercase tracking-wide transition-all duration-300 sm:px-4 " +
+    "whitespace-nowrap px-3 py-2 text-base uppercase tracking-wide transition-all duration-300 sm:px-4 " +
     (pathname.startsWith("/blog") ? "font-bold " : "font-normal ") +
     (pathname.startsWith("/blog")
       ? navSolid
@@ -186,7 +186,7 @@ export default function Navbar() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
-                            className="absolute left-0 mt-2 w-52 overflow-hidden rounded-xl bg-white py-2 shadow-2xl border border-gray-100"
+                            className="absolute left-0 mt-2 w-52 overflow-hidden bg-white py-2 shadow-2xl border border-gray-100"
                           >
                             {link.submenu.map((sub) => (
                               <Link
@@ -234,7 +234,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setLangOpen(!langOpen)}
-                  className={`flex items-center gap-2 rounded-xl px-3 py-2 text-base uppercase tracking-wide transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-3 py-2 text-base uppercase tracking-wide transition-all duration-300 ${
                     navSolid
                       ? "bg-gray-100/80 text-gray-700 hover:bg-gray-100"
                       : "bg-white/15 text-white hover:bg-white/20"
@@ -264,7 +264,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 z-[60] mt-2 w-52 overflow-hidden rounded-2xl bg-white py-1 shadow-2xl"
+                      className="absolute right-0 z-[60] mt-2 w-52 overflow-hidden bg-white py-1 shadow-2xl"
                     >
                       {languages.map((lang) => (
                         <button
@@ -306,7 +306,7 @@ export default function Navbar() {
 
               <motion.a
                 href={sectionHref("#contact")}
-                className="ml-1 shrink-0 rounded-full bg-gradient-to-r from-primary to-primary-dark px-4 py-2.5 text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 xl:ml-2 xl:px-5 2xl:px-6"
+                className="ml-1 shrink-0 bg-gradient-to-r from-primary to-primary-dark px-4 py-2.5 text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 xl:ml-2 xl:px-5 2xl:px-6"
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -318,26 +318,26 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="relative flex h-11 w-11 items-center justify-center rounded-xl p-2 sm:h-12 sm:w-12"
+                className="relative flex h-11 w-11 items-center justify-center p-2 sm:h-12 sm:w-12"
                 id="mobile-menu-button"
                 aria-label="Toggle menu"
               >
                 <div className="flex flex-col gap-1.5">
                   <motion.span
                     animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                    className={`w-6 h-0.5 rounded-full transition-colors ${
+                    className={`w-6 h-0.5 transition-colors ${
                       navSolid || mobileOpen ? "bg-gray-900" : "bg-white"
                     }`}
                   />
                   <motion.span
                     animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-                    className={`w-6 h-0.5 rounded-full transition-colors ${
+                    className={`w-6 h-0.5 transition-colors ${
                       navSolid || mobileOpen ? "bg-gray-900" : "bg-white"
                     }`}
                   />
                   <motion.span
                     animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                    className={`w-6 h-0.5 rounded-full transition-colors ${
+                    className={`w-6 h-0.5 transition-colors ${
                       navSolid || mobileOpen ? "bg-gray-900" : "bg-white"
                     }`}
                   />
@@ -369,7 +369,7 @@ export default function Navbar() {
                     <div key={link.name} className="flex flex-col">
                       <button
                         onClick={() => setMobileOpenDropdown(isMobileOpen ? null : link.name)}
-                        className={`flex items-center justify-between rounded-xl px-4 py-3 text-base transition-all ${
+                        className={`flex items-center justify-between px-4 py-3 text-base transition-all ${
                           isActive
                             ? "bg-primary/10 text-primary font-bold"
                             : "text-gray-800 font-normal"
@@ -391,7 +391,7 @@ export default function Navbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden bg-gray-50/50 rounded-xl mt-1 ml-4"
+                            className="overflow-hidden bg-gray-50/50 mt-1 ml-4"
                           >
                             {link.submenu.map((sub) => (
                               <Link
@@ -426,7 +426,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base transition-all ${
+                    className={`flex items-center justify-between px-4 py-3 text-base transition-all ${
                       active
                         ? "bg-primary/10 text-primary font-bold"
                         : "text-gray-800 font-normal hover:bg-gray-50 hover:text-primary"
@@ -471,7 +471,7 @@ export default function Navbar() {
               <Link
                 href="/blog"
                 onClick={() => setMobileOpen(false)}
-                className={`flex items-center justify-between rounded-xl px-4 py-3 text-base transition-all hover:bg-gray-50 ${
+                className={`flex items-center justify-between px-4 py-3 text-base transition-all hover:bg-gray-50 ${
                   pathname.startsWith("/blog")
                     ? "text-primary bg-primary/10 font-bold"
                     : "text-gray-800 font-normal hover:text-primary"
@@ -529,7 +529,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 + i * 0.1 }}
-                    className={`flex items-center gap-4 rounded-2xl px-4 py-4 text-base transition-all ${
+                    className={`flex items-center gap-4 px-4 py-4 text-base transition-all ${
                       locale === lang.code
                         ? "bg-primary text-white shadow-lg shadow-primary/20"
                         : "bg-gray-50 text-gray-700 active:scale-95"
@@ -566,7 +566,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="mt-8 w-full rounded-2xl bg-gradient-to-r from-primary to-primary-dark py-5 text-center text-base font-bold text-white shadow-xl shadow-primary/30"
+                className="mt-8 w-full bg-gradient-to-r from-primary to-primary-dark py-5 text-center text-base font-bold text-white shadow-xl shadow-primary/30"
               >
                 {t("navbar.cta")}
               </motion.a>

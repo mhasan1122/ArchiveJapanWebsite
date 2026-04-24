@@ -147,25 +147,6 @@ export default function Testimonials() {
             </AnimatePresence>
           </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  setDirection(i > current ? 1 : -1);
-                  setCurrent(i);
-                }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "bg-primary w-8"
-                    : "bg-white/20 hover:bg-white/40"
-                }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
-
           {/* Nav buttons */}
           <button
             onClick={() => {

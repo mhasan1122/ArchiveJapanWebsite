@@ -19,8 +19,8 @@ export default function CTABanner() {
         />
       </div>
       {/* Floating circles */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl" />
-      <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/5 rounded-full blur-xl" />
+      <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 blur-xl" />
+      <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/5 blur-xl" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
@@ -42,7 +42,7 @@ export default function CTABanner() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
               href="#contact"
-              className="group inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300"
+              className="group inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-bold shadow-2xl hover:shadow-3xl transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -64,7 +64,7 @@ export default function CTABanner() {
             <motion.a
               href="https://wa.me/8801XXXXXXXXX"
               target="_blank"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/20 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -85,9 +85,9 @@ export default function CTABanner() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20"
+            className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20"
           >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="w-2 h-2 bg-green-400 animate-pulse" />
             <span className="text-white/90 text-sm font-medium">
               {t("cta_banner.urgency")}
             </span>

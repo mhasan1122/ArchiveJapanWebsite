@@ -64,8 +64,8 @@ export default function BlogIndexContent() {
     <main className="min-h-screen bg-white pt-24 pb-24 overflow-hidden">
       {/* Hero Section with subtle background decoration */}
       <div className="relative mb-20">
-        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-primary/5 blur-3xl -z-10" />
+        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-secondary/5 blur-3xl -z-10" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.nav 
@@ -111,7 +111,7 @@ export default function BlogIndexContent() {
             <motion.div key={post.slug} variants={itemVariants}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col h-full bg-white rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-500 overflow-hidden"
+                className="group flex flex-col h-full bg-white border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-500 overflow-hidden"
               >
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -123,7 +123,7 @@ export default function BlogIndexContent() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="absolute top-6 left-6">
-                    <span className="bg-white/95 backdrop-blur-md px-4 py-1.5 text-[11px] font-black text-secondary rounded-full uppercase tracking-widest shadow-xl border border-white/20">
+                    <span className="bg-white/95 backdrop-blur-md px-4 py-1.5 text-[11px] font-black text-secondary uppercase tracking-widest shadow-xl border border-white/20">
                       {post.category}
                     </span>
                   </div>
@@ -136,7 +136,7 @@ export default function BlogIndexContent() {
                       <Calendar className="w-4 h-4 text-primary" />
                       {post.date}
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+                    <span className="w-1.5 h-1.5 bg-primary/20" />
                     <span className="flex items-center gap-1.5">
                       <Clock className="w-4 h-4 text-primary" />
                       {post.readTime}
@@ -156,7 +156,7 @@ export default function BlogIndexContent() {
                       Read Article
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                     </span>
-                    <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                    <div className="w-10 h-10 bg-gray-50 flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
                       <BookOpen className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                     </div>
                   </div>

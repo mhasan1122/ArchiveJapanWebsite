@@ -89,6 +89,9 @@ export default function Hero() {
             }}
           />
         </AnimatePresence>
+
+        {/* Light white shadow/glow at the bottom of the image */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white/60 via-white/25 to-transparent mix-blend-screen" />
         
         {/* Overlays removed (no dark shadow) */}
       </div>
@@ -107,8 +110,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white/90 text-sm font-medium shadow-2xl">
-              <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
+            <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-xl border border-white/20 text-white text-xs font-bold tracking-[0.2em] uppercase shadow-2xl">
+              <span className="w-2.5 h-2.5 bg-green-400 animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
               {t("hero.badge")}
             </span>
           </motion.div>
@@ -132,7 +135,7 @@ export default function Hero() {
             </span>
             <br />
             {t("hero.headline_2")}{" "}
-            <span className="inline-block animate-float text-5xl sm:text-6xl lg:text-7xl drop-shadow-xl">
+            <span className="inline-block animate-float text-6xl sm:text-7xl lg:text-8xl drop-shadow-xl">
               🇯🇵
             </span>
           </motion.h1>
@@ -142,7 +145,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 text-lg sm:text-xl text-white/90 max-w-xl leading-relaxed drop-shadow-lg"
+            className="mt-8 text-xl sm:text-2xl text-white/90 max-w-2xl leading-relaxed drop-shadow-lg"
           >
             {t("hero.subtext")}
           </motion.p>
@@ -156,7 +159,7 @@ export default function Hero() {
           >
             <motion.a
               href="#contact"
-              className="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-primary to-primary-dark text-white font-bold rounded-2xl shadow-[0_20px_50px_rgba(239,68,68,0.3)] overflow-hidden transition-all duration-300"
+              className="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-primary to-primary-dark text-white font-bold shadow-[0_20px_50px_rgba(239,68,68,0.3)] overflow-hidden transition-all duration-300"
               whileHover={{ scale: 1.05, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -182,7 +185,7 @@ export default function Hero() {
 
             <motion.a
               href="#contact"
-              className="group inline-flex items-center justify-center px-10 py-5 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300 shadow-xl"
+              className="group inline-flex items-center justify-center px-10 py-5 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-bold hover:bg-white/10 transition-all duration-300 shadow-xl"
               whileHover={{ scale: 1.05, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >

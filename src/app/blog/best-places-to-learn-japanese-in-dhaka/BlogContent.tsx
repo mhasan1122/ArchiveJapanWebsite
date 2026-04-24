@@ -98,7 +98,7 @@ export default function BlogContent() {
             className="max-w-4xl"
           >
             <motion.div variants={fadeUp} className="mb-4">
-              <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary-light text-sm font-semibold tracking-wider uppercase border border-primary/30">
+              <span className="inline-block py-1 px-3 bg-primary/20 text-primary-light text-sm font-semibold tracking-wider uppercase border border-primary/30">
                 Education / Guide
               </span>
             </motion.div>
@@ -112,15 +112,15 @@ export default function BlogContent() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 text-sm text-gray-400">
-              <div className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 border border-white/10">
                 <User className="w-4 h-4 text-primary" />
                 <span>Achieve Japan Team</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 border border-white/10">
                 <Calendar className="w-4 h-4 text-primary" />
                 <span>Published Oct 2024</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 border border-white/10">
                 <Clock className="w-4 h-4 text-primary" />
                 <span>5 min read</span>
               </div>
@@ -136,7 +136,7 @@ export default function BlogContent() {
             
             {/* Sidebar (TOC) */}
             <div className="lg:w-1/4 order-2 lg:order-1 hidden lg:block">
-              <div className="sticky top-28 bg-gray-50 border border-gray-100 p-6 rounded-2xl shadow-sm">
+              <div className="sticky top-28 bg-gray-50 border border-gray-100 p-6 shadow-sm">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 border-b pb-3 border-gray-200">Table of Contents</h3>
                 <nav className="space-y-3 font-medium text-gray-600">
                   {tocItems.map((item) => (
@@ -156,13 +156,13 @@ export default function BlogContent() {
                     <Share2 className="w-4 h-4" /> Share Article
                   </h4>
                   <div className="flex gap-3">
-                    <button aria-label="Share on Facebook" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary hover:shadow-md transition-all duration-300">
+                    <button aria-label="Share on Facebook" className="w-10 h-10 bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary hover:shadow-md transition-all duration-300">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                     </button>
-                    <button aria-label="Share on Twitter" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary hover:shadow-md transition-all duration-300">
+                    <button aria-label="Share on Twitter" className="w-10 h-10 bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary hover:shadow-md transition-all duration-300">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
                     </button>
-                    <button aria-label="Share on LinkedIn" className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary hover:shadow-md transition-all duration-300">
+                    <button aria-label="Share on LinkedIn" className="w-10 h-10 bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary hover:shadow-md transition-all duration-300">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                     </button>
                   </div>
@@ -177,9 +177,9 @@ export default function BlogContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="prose prose-lg max-w-none prose-headings:text-secondary prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-3xl prose-img:shadow-2xl prose-p:text-gray-600 prose-p:leading-loose"
+                className="prose prose-lg max-w-none prose-headings:text-secondary prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:shadow-2xl prose-p:text-gray-600 prose-p:leading-loose"
               >
-                <div className="mb-12 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+                <div className="mb-12 overflow-hidden shadow-2xl border border-gray-100">
                   <img 
                     src="/blog/best-places-to-learn-japanese-in-dhaka.png" 
                     alt="Japanese Language Classroom in Dhaka" 
@@ -190,7 +190,7 @@ export default function BlogContent() {
                 <div id="introduction" className="scroll-mt-28">
                   <h2 className="text-3xl font-bold text-secondary mb-6 relative">
                     Introduction
-                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary"></span>
                   </h2>
                   <p>
                     Many beginners often ask where they can learn Japanese in Dhaka. <span className="font-semibold text-primary">Achieve Japan</span> provides a clear and beginner-friendly path. Students get lessons that are easy to follow, structured, and practical.
@@ -206,7 +206,7 @@ export default function BlogContent() {
                 <div id="why-achieve-japan" className="mt-16 scroll-mt-28">
                   <h2 className="text-3xl font-bold text-secondary mb-6 relative">
                     Why Achieve Japan Stands Out for Beginners
-                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary"></span>
                   </h2>
                   <p>
                     Beginners often struggle to find a suitable institute that makes Japanese easy. <span className="font-semibold text-secondary">Achieve Japan solves this problem</span> with clear teaching methods and patient instructors. Every lesson focuses on step-by-step understanding.
@@ -214,7 +214,7 @@ export default function BlogContent() {
                   <p>
                     The institute is located in Banasree, Dhaka, a peaceful and accessible area. Parents trust the legal setup, and students feel secure. This environment allows beginners to focus completely on learning.
                   </p>
-                  <div className="bg-gray-50 border-l-4 border-primary p-6 my-8 rounded-r-lg shadow-sm">
+                  <div className="bg-gray-50 border-l-4 border-primary p-6 my-8 shadow-sm">
                     <p className="m-0 italic text-gray-700">"Achieve Japan has thirty seven years of experience in teaching Japanese. They have guided over five hundred students and workers to Japan. Beginners feel motivated knowing the institute has a proven record of success."</p>
                   </div>
                   <p>
@@ -225,21 +225,21 @@ export default function BlogContent() {
                 <div id="what-beginners-should-know" className="mt-16 scroll-mt-28">
                   <h2 className="text-3xl font-bold text-secondary mb-6 relative">
                     What Beginners Should Know Before Joining Japanese Classes
-                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary"></span>
                   </h2>
                   <p>
                     Beginners need a clear and simple learning path. Achieve Japan provides this with structured lessons. Teachers guide learners slowly, ensuring that each student understands every step.
                   </p>
                   <div className="grid md:grid-cols-2 gap-6 my-8">
-                    <div className="bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-primary/30 transition-colors group">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+                    <div className="bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-primary/30 transition-colors group">
+                      <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
                         <CheckCircle className="w-6 h-6" />
                       </div>
                       <h4 className="text-lg font-bold text-secondary mb-2">Alphabet & Basics</h4>
                       <p className="text-sm m-0 text-gray-600">The first course, N5, focuses on learning the Japanese alphabet: Hiragana and Katakana. Practice pronunciation, writing, and reading simple words.</p>
                     </div>
-                    <div className="bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-primary/30 transition-colors group">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+                    <div className="bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-primary/30 transition-colors group">
+                      <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
                         <CheckCircle className="w-6 h-6" />
                       </div>
                       <h4 className="text-lg font-bold text-secondary mb-2">Grammar & Structure</h4>
@@ -257,13 +257,13 @@ export default function BlogContent() {
                 <div id="how-classes-work" className="mt-16 scroll-mt-28">
                   <h2 className="text-3xl font-bold text-secondary mb-6 relative">
                     How Classes Work at Achieve Japan
-                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary"></span>
                   </h2>
                   <p>
                     Achieve Japan has structured its classes to support beginners. Teachers explain each topic using simple words. Students practice speaking and writing during every class. This method ensures understanding.
                   </p>
                   
-                  <div className="my-10 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+                  <div className="my-10 overflow-hidden shadow-xl border border-gray-100">
                     <img 
                       src="/blog/japanese-conversation-practice.png" 
                       alt="Students practicing Japanese conversation at Achieve Japan" 
@@ -273,21 +273,21 @@ export default function BlogContent() {
 
                   <ul className="space-y-4 my-8 pl-0 list-none">
                     <li className="flex items-start gap-4">
-                      <div className="mt-1 bg-primary/10 p-1.5 rounded-full text-primary shrink-0"><ArrowRight className="w-4 h-4" /></div>
+                      <div className="mt-1 bg-primary/10 p-1.5 text-primary shrink-0"><ArrowRight className="w-4 h-4" /></div>
                       <div>
                         <strong className="text-secondary block mb-1">Building the Foundation</strong>
                         <span className="text-gray-600 text-[15px]">The N5 course builds the foundation. Students start with the alphabet and basic grammar. Teachers repeat lessons for reinforcement. Beginners gain confidence in reading and writing simple sentences.</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="mt-1 bg-primary/10 p-1.5 rounded-full text-primary shrink-0"><ArrowRight className="w-4 h-4" /></div>
+                      <div className="mt-1 bg-primary/10 p-1.5 text-primary shrink-0"><ArrowRight className="w-4 h-4" /></div>
                       <div>
                         <strong className="text-secondary block mb-1">Progressing Together</strong>
                         <span className="text-gray-600 text-[15px]">After N5, learners progress to N4, where grammar and conversation skills are further developed. Teachers guide students step by step, ensuring that no one feels lost.</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="mt-1 bg-primary/10 p-1.5 rounded-full text-primary shrink-0"><ArrowRight className="w-4 h-4" /></div>
+                      <div className="mt-1 bg-primary/10 p-1.5 text-primary shrink-0"><ArrowRight className="w-4 h-4" /></div>
                       <div>
                         <strong className="text-secondary block mb-1">Practical Conversation</strong>
                         <span className="text-gray-600 text-[15px]">The institute also focuses on practical conversation practice. Students speak with teachers using daily situations. This makes learning useful and helps students apply what they learn immediately.</span>
@@ -302,14 +302,14 @@ export default function BlogContent() {
                 <div id="faqs" className="mt-16 scroll-mt-28">
                   <h2 className="text-3xl font-bold text-secondary mb-8 relative">
                     FAQs
-                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary"></span>
                   </h2>
                   <div className="not-prose space-y-4">
                     {faqs.map((faq, index) => (
                       <motion.div 
                         initial={false}
                         key={index} 
-                        className={`border rounded-2xl overflow-hidden transition-all duration-300 ${activeFaq === index ? 'border-primary/50 shadow-md bg-white' : 'border-gray-200 bg-gray-50/50 hover:bg-gray-50'}`}
+                        className={`border overflow-hidden transition-all duration-300 ${activeFaq === index ? 'border-primary/50 shadow-md bg-white' : 'border-gray-200 bg-gray-50/50 hover:bg-gray-50'}`}
                       >
                         <button
                           onClick={() => toggleFaq(index)}
@@ -341,10 +341,10 @@ export default function BlogContent() {
                   </div>
                 </div>
 
-                <div id="conclusion" className="mt-16 scroll-mt-28 bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                <div id="conclusion" className="mt-16 scroll-mt-28 bg-gray-50 p-8 border border-gray-100">
                   <h2 className="text-3xl font-bold text-secondary mb-6 relative mt-0 pt-0">
                     Conclusion
-                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary"></span>
                   </h2>
                   <p>
                     Beginners need a place that explains Japanese clearly and supports their learning journey. Achieve Japan provides simple, structured lessons with patient guidance. Students build confidence in reading, writing, and speaking Japanese.
@@ -381,7 +381,7 @@ export default function BlogContent() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
                 href="/#courses" 
-                className="inline-flex items-center gap-2 bg-white text-primary hover:bg-gray-50 px-10 py-5 rounded-full font-bold text-lg shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 group"
+                className="inline-flex items-center gap-2 bg-white text-primary hover:bg-gray-50 px-10 py-5 font-bold text-lg shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 group"
               >
                 Enroll Now at Achieve Japan
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -407,7 +407,7 @@ export default function BlogContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: post.delay }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 group cursor-pointer"
+                className="bg-white overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 group cursor-pointer"
               >
                 <div className="h-48 bg-gray-100 relative overflow-hidden">
                   <div className="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -415,7 +415,7 @@ export default function BlogContent() {
                     <BookOpen className="w-12 h-12 text-secondary" />
                   </div>
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-bold text-secondary rounded-full uppercase tracking-wider">
+                    <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-bold text-secondary uppercase tracking-wider">
                       {post.cat}
                     </span>
                   </div>

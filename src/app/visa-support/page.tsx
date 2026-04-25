@@ -9,9 +9,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
 
 const HERO_IMAGES = [
-  "/hero-bg.png",
-  "/hero-scenic.png",
-  "/hero-university.png",
+  "/2150455559.jpg",
+  "/791.jpg",
 ];
 
 // ─── Animation Variants ────────────────────────────────────────────────────────

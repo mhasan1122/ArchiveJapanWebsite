@@ -8,9 +8,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const HERO_IMAGES = [
-  "/hero-bg.png",
-  "/hero-scenic.png",
-  "/hero-university.png",
+  "/6461.jpg",
+  "/learning-education-ideas-insight-intelligence-study-concept.jpg",
 ];
 
 // ─── Animation Variants ────────────────────────────────────────────────────────

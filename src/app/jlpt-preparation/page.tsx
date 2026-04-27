@@ -61,8 +61,8 @@ function JLPTHero() {
             style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')` }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-[#1a1a2e]/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/25 via-transparent to-[#1a1a2e]/40" />
+        <div className="absolute inset-0 bg-[#1a1a2e]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/40 via-transparent to-[#1a1a2e]/60" />
       </div>
 
       <div className="absolute top-24 left-1/4 w-96 h-96 bg-[#E60023]/10 rounded-full blur-3xl pointer-events-none" />

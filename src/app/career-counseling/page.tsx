@@ -64,8 +64,8 @@ function CounselingHero() {
         </AnimatePresence>
         
         {/* Dark Overlays for readability */}
-        <div className="absolute inset-0 bg-[#1a1a2e]/45" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/25 via-transparent to-[#1a1a2e]/40" />
+        <div className="absolute inset-0 bg-[#1a1a2e]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/40 via-transparent to-[#1a1a2e]/60" />
       </div>
 
       {/* Decorative blobs */}

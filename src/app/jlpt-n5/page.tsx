@@ -60,8 +60,8 @@ function N5Hero() {
             style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')` }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-[#1a1a2e]/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/30 via-transparent to-[#1a1a2e]/70" />
+        <div className="absolute inset-0 bg-[#1a1a2e]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/40 via-transparent to-[#1a1a2e]/60" />
       </div>
 
       {/* Decorative blobs */}

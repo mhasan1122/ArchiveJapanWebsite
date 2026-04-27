@@ -64,8 +64,8 @@ function VisaHero() {
             }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-[#1a1a2e]/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#1a1a2e]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e]/60 via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">

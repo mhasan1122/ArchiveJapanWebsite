@@ -7,11 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const HERO_IMAGES = [
-  "/close-up-person-doing-japanese-calligraphy-called-shodo.jpg",
-  "/close-up-pupils-doing-japanese-calligraphy-called-shodo.jpg",
-  "/front-view-man-woman-discussing-table.jpg",
-];
+const HERO_IMAGES = ["/marketing-group-discussing-research-result.jpg", "/person-working-office.jpg"];
 
 // ─── Animation Variants ────────────────────────────────────────────────────────
 const fadeUp = {
@@ -36,8 +32,10 @@ const fadeRight = {
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 function CounselingHero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
   useEffect(() => {
+    setIsFirstRender(false);
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
@@ -51,7 +49,7 @@ function CounselingHero() {
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={isFirstRender ? false : { opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{

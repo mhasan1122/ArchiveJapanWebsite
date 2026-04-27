@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useLanguage } from "@/context/LanguageContext";
+import { JAPAN_PATHWAY_IMAGES } from "@/lib/japanPathways";
 
 /** Full-bleed backgrounds for the “Your path to Japan” section (crossfade). */
 const WHY_JAPAN_HERO_BACKGROUNDS = [
@@ -70,13 +71,13 @@ export default function WhyJapanPage() {
       href: "/study-in-japan",
       titleKey: "hero.pathways.study_title",
       teaserKey: "hero.pathways.study_teaser",
-      image: "/golden-pavilion-kinkakuji-temple-kyoto-japan.jpg",
+      image: JAPAN_PATHWAY_IMAGES.study.card,
     },
     {
       href: "/work-in-japan",
       titleKey: "hero.pathways.work_title",
       teaserKey: "hero.pathways.work_teaser",
-      image: "/yokohama-skyline-city.jpg",
+      image: JAPAN_PATHWAY_IMAGES.work.card,
     },
   ] as const;
 
@@ -145,7 +146,7 @@ export default function WhyJapanPage() {
               <motion.article
                 key={card.href}
                 variants={fadeUp}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl"
+                className="group flex flex-col overflow-hidden border border-white/15 bg-white/5 backdrop-blur-xl"
               >
                 <Link href={card.href} className="flex flex-1 flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary">
                   <div className="relative aspect-[16/9] w-full overflow-hidden">

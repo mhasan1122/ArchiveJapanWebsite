@@ -125,7 +125,7 @@ export default function Hero() {
               <Link
                 href="/why-japan"
                 aria-label={t("hero.why_japan.a11y_link")}
-                className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3131] focus-visible:ring-offset-2 focus-visible:ring-offset-black/30 transition-transform duration-300 hover:scale-[1.01] active:scale-[0.99]"
+                className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3131] focus-visible:ring-offset-2 focus-visible:ring-offset-black/30 transition-transform duration-300 hover:scale-[1.01] active:scale-[0.99]"
               >
                 <span className="block text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.08]">
                   {t("hero.why_japan.line1")}
@@ -144,7 +144,7 @@ export default function Hero() {
                   </span>
                 </span>
 
-                <span className="mt-4 block w-full max-w-2xl h-1 bg-[#FF3131] rounded-full" />
+                <span className="mt-4 block w-full max-w-2xl h-1 bg-[#FF3131]" />
 
                 <span className="mt-5 inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-white uppercase tracking-[0.15em] border-b border-dotted border-[#FF3131] pb-1 group-hover:text-white/95">
                   {t("hero.why_japan.hint_cta")}
@@ -235,7 +235,7 @@ export default function Hero() {
                 <div className="text-sm font-medium text-white/70 mt-1 uppercase tracking-widest">
                   {stat.label}
                 </div>
-                <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary/30 rounded-full" />
+                <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary/30" />
               </div>
             ))}
           </motion.div>

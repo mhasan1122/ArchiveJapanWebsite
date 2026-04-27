@@ -26,6 +26,49 @@ export const translations: any = {
       headline_1: "Build Your",
       headline_highlight: "Future",
       headline_2: "in Japan",
+      why_japan: {
+        line1: "Why Japan?",
+        line2a: "Because Your Future",
+        line2b: "Deserves More",
+        a11y_link: "Open Study and Work pathways in Japan",
+        hint_cta: "Tap to explore Study & Work"
+      },
+      why_japan_page: {
+        badge: "Your path to Japan",
+        title: "Study or Work — your next chapter starts here",
+        subtitle:
+          "Explore both pathways and choose the route that matches your goals. Achieve Japan supports you with training, visas, and placement.",
+        study_cta: "Study in Japan",
+        work_cta: "Work in Japan",
+        learn_more: "Learn more"
+      },
+      pathway_detail_page: {
+        back_hub: "Back to pathways"
+      },
+      pathways: {
+        study_title: "Study in Japan",
+        study_teaser:
+          "Language schools, higher education, and student visas — earn credentials in one of the world’s most respected systems.",
+        work_title: "Work in Japan",
+        work_teaser:
+          "SSW training, employer matching, and career skills — build a stable professional life with structured support.",
+        see_more: "See more",
+        see_less: "See less"
+      },
+      pathway_detail: {
+        study_heading: "Your study pathway",
+        study_points: [
+          "JLPT-focused Japanese classes from beginner to advanced, aligned with school and visa requirements.",
+          "Guidance on language schools, universities, scholarships, and Certificate of Eligibility (COE) paperwork.",
+          "Cultural readiness and life-in-Japan basics so you arrive confident, not overwhelmed."
+        ],
+        work_heading: "Your work pathway",
+        work_points: [
+          "Specified Skilled Worker (SSW) preparation: language, industry basics, and exam strategies.",
+          "Interview coaching, documentation help, and connections aligned with approved sectors.",
+          "Ongoing support from training through deployment — the same team that has guided thousands for 37+ years."
+        ]
+      },
       subtext: "Your complete pathway to Japan — expert language training, SSW visa support, job placement & study abroad consultancy with 37+ years of trusted experience.",
       cta_primary: "Start Your Journey",
       cta_secondary: "Book Free Consultation",
@@ -405,6 +448,49 @@ export const translations: any = {
       headline_1: "জাপানে আপনার",
       headline_highlight: "ভবিষ্যৎ",
       headline_2: "গড়ুন",
+      why_japan: {
+        line1: "কেন জাপান?",
+        line2a: "কারণ আপনার ভবিষ্যৎ",
+        line2b: "আরও বেশি পাওয়ার যোগ্য",
+        a11y_link: "জাপানে পড়াশোনা ও কাজের পথের পেজ খুলুন",
+        hint_cta: "পড়াশোনা ও কাজ দেখতে ট্যাপ করুন"
+      },
+      why_japan_page: {
+        badge: "জাপানে আপনার পথ",
+        title: "পড়াশোনা বা কাজ — আপনার পরের অধ্যায় এখান থেকে",
+        subtitle:
+          "দুই ধরনের পথ দেখুন এবং আপনার লক্ষ্য অনুযায়ী রুট বেছে নিন। অ্যাচিভ জাপান প্রশিক্ষণ, ভিসা ও প্লেসমেন্টে সহায়তা করে।",
+        study_cta: "জাপানে পড়াশোনা",
+        work_cta: "জাপানে কাজ",
+        learn_more: "আরও জানুন"
+      },
+      pathway_detail_page: {
+        back_hub: "পথসমূহে ফিরে যান"
+      },
+      pathways: {
+        study_title: "জাপানে পড়াশোনা",
+        study_teaser:
+          "ভাষা স্কুল, উচ্চশিক্ষা ও স্টুডেন্ট ভিসা — বিশ্বের অন্যতম সম্মানিত শিক্ষাব্যবস্থায় যোগ্যতা অর্জন করুন।",
+        work_title: "জাপানে কাজ",
+        work_teaser:
+          "এসএসডব্লিউ প্রশিক্ষণ, নিয়োগকর্তা মিলিয়ে দেওয়া ও ক্যারিয়ার দক্ষতা — কাঠামোবদ্ধ সহায়তায় স্থিতিশীল পেশাজীবন।",
+        see_more: "আরও দেখুন",
+        see_less: "কম দেখুন"
+      },
+      pathway_detail: {
+        study_heading: "আপনার পড়াশোনার পথ",
+        study_points: [
+          "বিগিনার থেকে অ্যাডভান্সড পর্যন্ত স্কুল ও ভিসার প্রয়োজন মাফিক জেএলপিটি-কেন্দ্রিক জাপানি ক্লাস।",
+          "ভাষা স্কুল, বিশ্ববিদ্যালয়, বৃত্তি ও সার্টিফিকেট অফ এলিজিবিলিটি (সিওই) কাগজপত্রে দিকনির্দেশনা।",
+          "সংস্কৃতিগত প্রস্তুতি ও জাপানে জীবনের মৌলিক বিষয় — যেন আপনি আত্মবিশ্বাস নিয়ে পৌঁছান।"
+        ],
+        work_heading: "আপনার কাজের পথ",
+        work_points: [
+          "স্পেসিফাইড স্কিলড ওয়ার্কার (এসএসডব্লিউ) প্রস্তুতি: ভাষা, শিল্পের ভিত্তি ও পরীক্ষার কৌশল।",
+          "ইন্টারভিউ কোচিং, নথি সহায়তা ও অনুমোদিত খাতের সঙ্গে মিলিয়ে দেওয়া।",
+          "প্রশিক্ষণ থেকে মোতায়েন পর্যন্ত ক্রমাগত সহায়তা — ৩৭ বছর ধরে হাজারো মানুষকে যে টিম গাইড করেছে।"
+        ]
+      },
       subtext: "জাপানে আপনার সম্পূর্ণ পথচলা — ৩৭ বছরেরও বেশি অভিজ্ঞতার সাথে বিশেষজ্ঞ ভাষা প্রশিক্ষণ, এসএসডব্লিউ ভিসা সাপোর্ট, জব প্লেসমেন্ট এবং স্টাডি অ্যাব্রোড কনসালটেন্সি।",
       cta_primary: "আপনার যাত্রা শুরু করুন",
       cta_secondary: "ফ্রি পরামর্শ নিন",
@@ -784,6 +870,49 @@ export const translations: any = {
       headline_1: "日本であなたの",
       headline_highlight: "未来",
       headline_2: "を築こう",
+      why_japan: {
+        line1: "なぜ日本？",
+        line2a: "あなたの未来は、",
+        line2b: "もっと輝く価値がある",
+        a11y_link: "留学と就労の案内ページを開く",
+        hint_cta: "タップで留学・就労を見る"
+      },
+      why_japan_page: {
+        badge: "日本への道",
+        title: "留学か就労か — 次の章はここから",
+        subtitle:
+          "両方のパスを見比べ、目標に合うルートを選びましょう。語学・ビザ・就職まで一貫してサポートします。",
+        study_cta: "日本で学ぶ",
+        work_cta: "日本で働く",
+        learn_more: "詳しく見る"
+      },
+      pathway_detail_page: {
+        back_hub: "パス一覧に戻る"
+      },
+      pathways: {
+        study_title: "日本で学ぶ",
+        study_teaser:
+          "語学学校、高等教育、留学ビザ — 世界でも高く評価される教育システムで資格を積み上げましょう。",
+        work_title: "日本で働く",
+        work_teaser:
+          "特定技能の準備、雇用主とのマッチング、キャリアスキル — 手厚いサポートのもとで安定したキャリアを。",
+        see_more: "詳しく見る",
+        see_less: "閉じる"
+      },
+      pathway_detail: {
+        study_heading: "留学の道筋",
+        study_points: [
+          "初級から上級まで、学校・ビザ要件に沿ったJLPT対策の日本語クラス。",
+          "語学学校・大学・奨学金・在留資格認定証明書（COE）書類のガイダンス。",
+          "文化面の準備と日本生活の基礎 — 自信を持って渡航できるように。"
+        ],
+        work_heading: "就労の道筋",
+        work_points: [
+          "特定技能（SSW）対策：語学、業界の基礎、試験対策。",
+          "面接指導、書類サポート、認定分野に沿ったつながり。",
+          "研修から現地赴任まで継続サポート — 37年間、数千人を導いてきた同じチームが伴走します。"
+        ]
+      },
       subtext: "日本への完全な道筋 — 専門的な語学トレーニング、SSWビザサポート、就職支援、および37年以上の信頼ある経験を持つ留学コンサルタント。",
       cta_primary: "旅を始める",
       cta_secondary: "無料相談を予約する",

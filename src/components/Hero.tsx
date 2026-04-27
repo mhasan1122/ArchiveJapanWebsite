@@ -2,11 +2,11 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useMemo } from "react";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 /** Public-folder paths; segments are encoded when used in URLs (spaces in filenames). */
 const HERO_IMAGES = [
-  // "/hero-bg.png",
   "/fuji-mountain-cherry-blossoms-spring-japan.jpg",
   "/Rectangle 34626572.png",
   "/beautiful-landmark-fuji-mountain-chureito-pagoda-sunset-japan.jpg",
@@ -43,8 +43,6 @@ export default function Hero() {
   useEffect(() => {
     setMounted(true);
 
-    // Preload hero backgrounds to avoid flashes between transitions.
-    // (Especially noticeable with `background-image` swaps.)
     HERO_IMAGES.forEach((src) => {
       const img = new Image();
       img.src = encodePublicImagePath(src);
@@ -52,7 +50,7 @@ export default function Hero() {
 
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -69,9 +67,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0 z-0">
-        {/* Use an overlapping crossfade (no "gap" frame). */}
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={currentImageIndex}
@@ -80,7 +76,7 @@ export default function Hero() {
             exit={{ opacity: 0 }}
             transition={{
               opacity: { duration: 1.5, ease: "easeInOut" },
-              scale: { duration: 5, ease: "linear" }
+              scale: { duration: 5, ease: "linear" },
             }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
@@ -90,7 +86,6 @@ export default function Hero() {
           />
         </AnimatePresence>
 
-        {/* Soft left-to-right vignette: stronger readable tone on the left, clear image on the right */}
         <div
           className="pointer-events-none absolute inset-0 z-[1]"
           style={{
@@ -100,19 +95,15 @@ export default function Hero() {
           aria-hidden
         />
 
-        {/* Light white shadow/glow at the bottom of the image */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-64 bg-gradient-to-t from-white/60 via-white/25 to-transparent mix-blend-screen" />
       </div>
 
-      {/* Sakura Petals */}
       {petals.map((petal, i) => (
         <SakuraPetal key={i} delay={petal.delay} left={petal.left} />
       ))}
 
-      {/* Content — same horizontal padding as Navbar (`px-6 lg:px-12`) so copy aligns with the logo */}
       <div className="relative z-10 w-full px-6 lg:px-12 pt-32 pb-20">
         <div className="max-w-3xl text-left">
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,31 +115,44 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Headline */}
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-8 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight drop-shadow-2xl"
+            className="mt-8"
           >
-            {t("hero.headline_1")}{" "}
-            <span className="relative">
-              <span className="shimmer-text">{t("hero.headline_highlight")}</span>
-              <motion.div 
-                className="absolute -bottom-2 left-0 h-1.5 bg-primary/80 rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 1, duration: 0.8 }}
-              />
-            </span>
-            <br />
-            {t("hero.headline_2")}{" "}
-            <span className="inline-block animate-float text-6xl sm:text-7xl lg:text-8xl drop-shadow-xl">
-              🇯🇵
-            </span>
-          </motion.h1>
+            <h1 className="max-w-4xl font-extrabold tracking-tight drop-shadow-2xl">
+              <Link
+                href="/why-japan"
+                aria-label={t("hero.why_japan.a11y_link")}
+                className="group block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3131] focus-visible:ring-offset-2 focus-visible:ring-offset-black/30 transition-transform duration-300 hover:scale-[1.01] active:scale-[0.99]"
+              >
+                <span className="block text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.08]">
+                  {t("hero.why_japan.line1")}
+                </span>
 
-          {/* Subtext */}
+                <span className="mt-3 block text-4xl sm:text-5xl lg:text-6xl leading-[1.12] text-[#FF3131]">
+                  <span className="block">{t("hero.why_japan.line2a")}</span>
+                  <span className="mt-1 block">
+                    {t("hero.why_japan.line2b")}
+                    <span
+                      className="inline-block ml-2 sm:ml-3 align-middle text-5xl sm:text-6xl lg:text-7xl animate-float drop-shadow-lg"
+                      aria-hidden
+                    >
+                      🇯🇵
+                    </span>
+                  </span>
+                </span>
+
+                <span className="mt-4 block w-full max-w-2xl h-1 bg-[#FF3131] rounded-full" />
+
+                <span className="mt-5 inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-white uppercase tracking-[0.15em] border-b border-dotted border-[#FF3131] pb-1 group-hover:text-white/95">
+                  {t("hero.why_japan.hint_cta")}
+                </span>
+              </Link>
+            </h1>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -158,7 +162,6 @@ export default function Hero() {
             {t("hero.subtext")}
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -214,7 +217,6 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Trust Badges */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -230,7 +232,9 @@ export default function Hero() {
                 <div className="text-4xl font-black text-white tracking-tighter">
                   {stat.value}
                 </div>
-                <div className="text-sm font-medium text-white/70 mt-1 uppercase tracking-widest">{stat.label}</div>
+                <div className="text-sm font-medium text-white/70 mt-1 uppercase tracking-widest">
+                  {stat.label}
+                </div>
                 <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary/30 rounded-full" />
               </div>
             ))}
@@ -238,16 +242,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom gradient fade removed */}
-
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="w-7 h-12 rounded-full border-2 border-white/40 flex justify-center pt-2 backdrop-blur-sm">
-          <motion.div 
+          <motion.div
             className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(239,68,68,0.8)]"
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 1.5, repeat: Infinity }}

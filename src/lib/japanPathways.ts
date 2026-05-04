@@ -9,7 +9,7 @@ export const JAPAN_PATHWAY_IMAGES = {
     ],
   },
   work: {
-    card: "/company-secretary-taking-phone-call-office-desk-answering-customer-inquiries.jpg",
+    card: "/asian-business-people-city-working-together.jpg",
     detail: [
       "/learning-programming-language.jpg",
       "/asian-businessmen-businesswomen-meeting-brainstorming-ideas-about-creative-web-design-planning-application-developing-template-layout-mobile-phone-project-working-together-small-office.jpg",

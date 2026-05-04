@@ -49,7 +49,7 @@ export const translations: any = {
         study_title: "Study in Japan",
         study_teaser:
           "Language schools, higher education, and student visas — earn credentials in one of the world’s most respected systems.",
-        work_title: "Work in Japan",
+        work_title: "Why Job in Japan?",
         work_teaser:
           "SSW training, employer matching, and career skills — build a stable professional life with structured support.",
         see_more: "See more",

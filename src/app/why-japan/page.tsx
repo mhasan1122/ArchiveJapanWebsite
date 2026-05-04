@@ -146,40 +146,32 @@ export default function WhyJapanPage() {
               <motion.article
                 key={card.href}
                 variants={fadeUp}
-                className="group flex flex-col overflow-hidden border border-white/15 bg-white/5 backdrop-blur-xl"
+                className="group relative overflow-hidden rounded-none border border-white/20 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 hover:border-white/40 aspect-square"
               >
-                <Link href={card.href} className="flex flex-1 flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary">
-                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <Link href={card.href} className="flex h-full w-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                  <div className="absolute inset-0 z-0">
                     <NextImage
                       src={card.image}
                       alt=""
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
                       sizes="(max-width: 640px) 100vw, 50vw"
+                      priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <h2 className="absolute bottom-4 left-4 right-4 text-2xl font-bold text-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                  </div>
+
+                  <div className="relative z-10 flex flex-col h-full p-8 justify-end">
+                    <h2 className="text-4xl font-black text-white tracking-tight mb-4 group-hover:text-primary-light transition-colors">
                       {t(card.titleKey)}
                     </h2>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <p className="text-white/85 leading-relaxed flex-1">
+                    <p className="text-white/80 leading-relaxed text-lg mb-8 line-clamp-3">
                       {t(card.teaserKey)}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest group-hover:text-primary-light transition-colors">
+                    <span className="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform">
                       {t("hero.why_japan_page.learn_more")}
-                      <svg
-                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </span>
                   </div>
